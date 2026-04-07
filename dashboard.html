@@ -1,13 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Versafic Dashboard</title>
-    <link rel="stylesheet" href="style.css" <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
             --grad-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
@@ -480,6 +481,11 @@
 
         .chart-grid-21 {
             grid-template-columns: 2fr 1fr
+        }
+
+        .chart-grid-21>.chart-container:last-child {
+            max-height: 420px;
+            overflow: hidden
         }
 
         .chart-grid-12 {
@@ -1644,10 +1650,12 @@
         .volume-graph {
             position: relative;
             height: 180px;
+            max-width: 100%;
             display: flex;
             align-items: flex-end;
             gap: 2px;
-            padding: 0 4px
+            padding: 0 4px;
+            overflow: hidden
         }
 
         .volume-bar-group {
@@ -1840,7 +1848,8 @@
 <body>
     <div class="mobile-header">
         <a href="#" class="mobile-logo">Versafic</a>
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i data-lucide="menu"
+                style="width:1.2em;height:1.2em;vertical-align:middle"></i></button>
     </div>
     <div class="sidebar-overlay" onclick="toggleMobileMenu()"></div>
     <div class="app-layout">
@@ -1920,7 +1929,8 @@
             <div class="page active" id="page-overview">
                 <div class="dash-header">
                     <div>
-                        <h2>Good evening, Alex 👋</h2>
+                        <h2>Good evening, Alex <i data-lucide="hand"
+                                style="width:1em;height:1em;vertical-align:middle;display:inline-block"></i></h2>
                         <p>Here's what's happening with your AI agent today.</p>
                     </div>
                     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
@@ -1932,7 +1942,10 @@
                             <button class="date-filter-btn" onclick="setDateFilter(this)">1 YEAR</button>
                             <button class="date-filter-btn" onclick="setDateFilter(this)">2 YEAR</button>
                         </div>
-                        <span class="badge badge-green" style="padding:6px 14px;font-size:0.8rem">🟢 AI Agent
+                        <span class="badge badge-green" style="padding:6px 14px;font-size:0.8rem"><i
+                                data-lucide="circle-dot"
+                                style="width:0.85em;height:0.85em;vertical-align:middle;display:inline-block;color:#10b981"></i>
+                            AI Agent
                             Live</span>
                         <button class="btn btn-primary btn-sm"
                             onclick="showPage('credits',document.querySelector('.nav-item:nth-child(7)'))">+ Buy
@@ -1941,37 +1954,41 @@
                 </div>
                 <div class="stat-cards stat-cards-6">
                     <div class="stat-card">
-                        <div class="stat-card-icon">💬</div>
+                        <div class="stat-card-icon"><i data-lucide="message-square"
+                                style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">4,267</div>
                         <div class="stat-card-label">Total Conversations</div>
                         <div class="stat-card-change up">↑ 18% this week</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">👤</div>
+                        <div class="stat-card-icon"><i data-lucide="user" style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">1,842</div>
                         <div class="stat-card-label">Unique Users</div>
                         <div class="stat-card-change up">↑ 12% this week</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">📞</div>
+                        <div class="stat-card-icon"><i data-lucide="phone" style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">2,847</div>
                         <div class="stat-card-label">AI Calls</div>
                         <div class="stat-card-change up">↑ 15% this week</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">💭</div>
+                        <div class="stat-card-icon"><i data-lucide="message-circle"
+                                style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">1,420</div>
                         <div class="stat-card-label">Chats</div>
                         <div class="stat-card-change up">↑ 22% this week</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">📅</div>
+                        <div class="stat-card-icon"><i data-lucide="calendar" style="width:1.3em;height:1.3em"></i>
+                        </div>
                         <div class="stat-card-value gradient-text">384</div>
                         <div class="stat-card-label">Bookings</div>
                         <div class="stat-card-change up">↑ 12% this week</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">🚨</div>
+                        <div class="stat-card-icon"><i data-lucide="alert-triangle"
+                                style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">67</div>
                         <div class="stat-card-label">Escalated</div>
                         <div class="stat-card-change down">↓ 8% this week</div>
@@ -2114,7 +2131,9 @@
             <div class="page" id="page-calls">
                 <div class="dash-header">
                     <div>
-                        <h2>📞 Call History</h2>
+                        <h2><i data-lucide="phone"
+                                style="width:1em;height:1em;vertical-align:middle;display:inline-block"></i> Call
+                            History</h2>
                         <p>All calls handled by your AI agent.</p>
                     </div>
                     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
@@ -2131,43 +2150,46 @@
                 </div>
                 <div class="stat-cards stat-cards-7">
                     <div class="stat-card">
-                        <div class="stat-card-icon">📞</div>
+                        <div class="stat-card-icon"><i data-lucide="phone" style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">2,847</div>
                         <div class="stat-card-label">Total Calls</div>
                         <div class="stat-card-change up">↑ 15%</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">👤</div>
+                        <div class="stat-card-icon"><i data-lucide="user" style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">1,203</div>
                         <div class="stat-card-label">Unique Callers</div>
                         <div class="stat-card-change up">↑ 9%</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">⏱️</div>
+                        <div class="stat-card-icon"><i data-lucide="timer" style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">1m 42s</div>
                         <div class="stat-card-label">Avg Duration</div>
                         <div class="stat-card-change down">↓ 5%</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">⭐</div>
+                        <div class="stat-card-icon"><i data-lucide="star" style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">94%</div>
                         <div class="stat-card-label">Resolution Rate</div>
                         <div class="stat-card-change up">↑ 3%</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">📵</div>
+                        <div class="stat-card-icon"><i data-lucide="phone-off" style="width:1.3em;height:1.3em"></i>
+                        </div>
                         <div class="stat-card-value gradient-text">4.2%</div>
                         <div class="stat-card-label">Missed/Drop Rate</div>
                         <div class="stat-card-change down">↓ 1.5%</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">⏳</div>
+                        <div class="stat-card-icon"><i data-lucide="hourglass" style="width:1.3em;height:1.3em"></i>
+                        </div>
                         <div class="stat-card-value gradient-text">8s</div>
                         <div class="stat-card-label">Average Wait</div>
                         <div class="stat-card-change up">↑ 2s</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">⚠️</div>
+                        <div class="stat-card-icon"><i data-lucide="alert-circle" style="width:1.3em;height:1.3em"></i>
+                        </div>
                         <div class="stat-card-value gradient-text">156</div>
                         <div class="stat-card-label">Incomplete Calls</div>
                         <div class="stat-card-change down">↓ 12%</div>
@@ -2179,20 +2201,35 @@
                         <div class="section-header">
                             <h3>Call Log</h3>
                         </div>
-                        <div class="search-bar">
-                            <input class="search-input" placeholder="Search by name..." id="callSearchInput"
-                                oninput="filterCallsTable()">
-                            <select class="sort-select" id="callIntentFilter" onchange="filterCallsTable()">
-                                <option value="">All Intents</option>
-                                <option value="Bookings">Bookings</option>
-                                <option value="Appointments">Appointments</option>
-                                <option value="Customer Support">Customer Support</option>
-                                <option value="Inquiry Resolution">Inquiry Resolution</option>
-                                <option value="Information Retrieval">Information Retrieval</option>
-                                <option value="Recommendation">Recommendation</option>
-                                <option value="Lead Generation">Lead Identification/Generation</option>
-                                <option value="Spam Call">Spam Call</option>
-                            </select>
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px;">
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <span style="font-size:0.84rem;color:var(--text-secondary);">Show</span>
+                                <select class="sort-select" id="callPageSize" onchange="callsPage=1;filterCallsTable()"
+                                    style="min-width:60px;">
+                                    <option value="10">10</option>
+                                    <option value="25" selected>25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                <span style="font-size:0.84rem;color:var(--text-secondary);">entries</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <input class="search-input" placeholder="Search..." id="callSearchInput"
+                                    oninput="callsPage=1;filterCallsTable()" style="margin:0;max-width:180px;">
+                                <select class="sort-select" id="callIntentFilter"
+                                    onchange="callsPage=1;filterCallsTable()">
+                                    <option value="">All Intents</option>
+                                    <option value="Bookings">Bookings</option>
+                                    <option value="Appointments">Appointments</option>
+                                    <option value="Customer Support">Customer Support</option>
+                                    <option value="Inquiry Resolution">Inquiry Resolution</option>
+                                    <option value="Information Retrieval">Information Retrieval</option>
+                                    <option value="Recommendation">Recommendation</option>
+                                    <option value="Lead Generation">Lead Identification/Generation</option>
+                                    <option value="Spam Call">Spam Call</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="table-container">
                             <table>
@@ -2209,6 +2246,9 @@
                                 </thead>
                                 <tbody id="callsTableBody"></tbody>
                             </table>
+                        </div>
+                        <div id="callsPagination"
+                            style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:0.84rem;color:var(--text-secondary);flex-wrap:wrap;gap:8px;">
                         </div>
                     </div>
                     <div class="chart-container">
@@ -2260,7 +2300,9 @@
             <div class="page" id="page-chats">
                 <div class="dash-header">
                     <div>
-                        <h2>💬 Chat History</h2>
+                        <h2><i data-lucide="message-square"
+                                style="width:1em;height:1em;vertical-align:middle;display:inline-block"></i> Chat
+                            History</h2>
                         <p>All text-based interactions handled by your AI assistant.</p>
                     </div>
                     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
@@ -2277,43 +2319,47 @@
                 </div>
                 <div class="stat-cards stat-cards-7">
                     <div class="stat-card">
-                        <div class="stat-card-icon">💬</div>
+                        <div class="stat-card-icon"><i data-lucide="message-square"
+                                style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">1,420</div>
                         <div class="stat-card-label">Total Chats</div>
                         <div class="stat-card-change up">↑ 22%</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">👤</div>
+                        <div class="stat-card-icon"><i data-lucide="user" style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">892</div>
                         <div class="stat-card-label">Unique Users</div>
                         <div class="stat-card-change up">↑ 14%</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">💭</div>
+                        <div class="stat-card-icon"><i data-lucide="message-circle"
+                                style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">12</div>
                         <div class="stat-card-label">Avg Messages</div>
                         <div class="stat-card-change up">↑ 3</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">⭐</div>
+                        <div class="stat-card-icon"><i data-lucide="star" style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">96%</div>
                         <div class="stat-card-label">Resolution Rate</div>
                         <div class="stat-card-change up">↑ 2%</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">⚡</div>
+                        <div class="stat-card-icon"><i data-lucide="zap" style="width:1.3em;height:1.3em"></i></div>
                         <div class="stat-card-value gradient-text">1.2s</div>
                         <div class="stat-card-label">Avg Response Time</div>
                         <div class="stat-card-change up">↑ 0.3s</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">📵</div>
+                        <div class="stat-card-icon"><i data-lucide="phone-off" style="width:1.3em;height:1.3em"></i>
+                        </div>
                         <div class="stat-card-value gradient-text">2.1%</div>
                         <div class="stat-card-label">Abandoned Rate</div>
                         <div class="stat-card-change down">↓ 0.8%</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-card-icon">⚠️</div>
+                        <div class="stat-card-icon"><i data-lucide="alert-circle" style="width:1.3em;height:1.3em"></i>
+                        </div>
                         <div class="stat-card-value gradient-text">48</div>
                         <div class="stat-card-label">Incomplete Chats</div>
                         <div class="stat-card-change down">↓ 15%</div>
@@ -2325,20 +2371,35 @@
                         <div class="section-header">
                             <h3>Chat Log</h3>
                         </div>
-                        <div class="search-bar">
-                            <input class="search-input" placeholder="Search by name..." id="chatSearchInput"
-                                oninput="filterChatsTable()">
-                            <select class="sort-select" id="chatIntentFilter" onchange="filterChatsTable()">
-                                <option value="">All Intents</option>
-                                <option value="Bookings">Bookings</option>
-                                <option value="Appointments">Appointments</option>
-                                <option value="Customer Support">Customer Support</option>
-                                <option value="Inquiry Resolution">Inquiry Resolution</option>
-                                <option value="Information Retrieval">Information Retrieval</option>
-                                <option value="Recommendation">Recommendation</option>
-                                <option value="Lead Generation">Lead Identification/Generation</option>
-                                <option value="Spam Call">Spam Call</option>
-                            </select>
+                        <div
+                            style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px;">
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <span style="font-size:0.84rem;color:var(--text-secondary);">Show</span>
+                                <select class="sort-select" id="chatPageSize" onchange="chatsPage=1;filterChatsTable()"
+                                    style="min-width:60px;">
+                                    <option value="10">10</option>
+                                    <option value="25" selected>25</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                </select>
+                                <span style="font-size:0.84rem;color:var(--text-secondary);">entries</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <input class="search-input" placeholder="Search..." id="chatSearchInput"
+                                    oninput="chatsPage=1;filterChatsTable()" style="margin:0;max-width:180px;">
+                                <select class="sort-select" id="chatIntentFilter"
+                                    onchange="chatsPage=1;filterChatsTable()">
+                                    <option value="">All Intents</option>
+                                    <option value="Bookings">Bookings</option>
+                                    <option value="Appointments">Appointments</option>
+                                    <option value="Customer Support">Customer Support</option>
+                                    <option value="Inquiry Resolution">Inquiry Resolution</option>
+                                    <option value="Information Retrieval">Information Retrieval</option>
+                                    <option value="Recommendation">Recommendation</option>
+                                    <option value="Lead Generation">Lead Identification/Generation</option>
+                                    <option value="Spam Call">Spam Call</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="table-container">
                             <table>
@@ -2355,6 +2416,9 @@
                                 </thead>
                                 <tbody id="chatsTableBody"></tbody>
                             </table>
+                        </div>
+                        <div id="chatsPagination"
+                            style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:0.84rem;color:var(--text-secondary);flex-wrap:wrap;gap:8px;">
                         </div>
                     </div>
                     <div class="chart-container">
@@ -2406,12 +2470,15 @@
             <div class="page" id="page-bookings">
                 <div class="dash-header">
                     <div>
-                        <h2>📅 Bookings</h2>
+                        <h2><i data-lucide="calendar"
+                                style="width:1em;height:1em;vertical-align:middle;display:inline-block"></i> Bookings
+                        </h2>
                         <p>Appointments scheduled by your AI agent.</p>
                     </div>
                     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
                         <button class="btn btn-outline btn-sm" onclick="toggleBookingView('settings')"
-                            id="btn-booking-settings">⚙️ Settings</button>
+                            id="btn-booking-settings"><i data-lucide="settings"
+                                style="width:0.9em;height:0.9em;vertical-align:middle"></i> Settings</button>
                         <button class="btn btn-outline btn-sm" onclick="toggleBookingView('main')" id="btn-booking-main"
                             style="display:none">← Back to Calendar</button>
                         <button class="btn btn-primary btn-sm" onclick="openModal()">+ Manual Booking</button>
@@ -2543,6 +2610,33 @@
                             <div class="section-header">
                                 <h3>Upcoming Bookings</h3>
                             </div>
+                            <div
+                                style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px;">
+                                <div style="display:flex;align-items:center;gap:8px;">
+                                    <span style="font-size:0.84rem;color:var(--text-secondary);">Show</span>
+                                    <select class="sort-select" id="activeBookingPageSize"
+                                        onchange="activeBookingsPage=1;renderActiveBookings()" style="min-width:60px;">
+                                        <option value="10" selected>10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                    </select>
+                                    <span style="font-size:0.84rem;color:var(--text-secondary);">entries</span>
+                                </div>
+                                <div style="display:flex;align-items:center;gap:8px;">
+                                    <input class="search-input" placeholder="Search..." id="activeBookingSearch"
+                                        oninput="activeBookingsPage=1;renderActiveBookings()"
+                                        style="margin:0;max-width:180px;">
+                                    <div style="display:flex;align-items:center;gap:4px;">
+                                        <input type="date" class="input-field" id="activeBookingFrom"
+                                            onchange="activeBookingsPage=1;renderActiveBookings()"
+                                            style="max-width:140px;font-size:0.82rem;">
+                                        <span style="font-size:0.8rem;color:var(--text-muted);">to</span>
+                                        <input type="date" class="input-field" id="activeBookingTo"
+                                            onchange="activeBookingsPage=1;renderActiveBookings()"
+                                            style="max-width:140px;font-size:0.82rem;">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="table-container">
                                 <table>
                                     <thead>
@@ -2555,49 +2649,11 @@
                                             <th>Notes</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td style="color:var(--text-primary);font-weight:600">Maria Rodriguez</td>
-                                            <td>Consultation</td>
-                                            <td>Today</td>
-                                            <td>3:00 PM</td>
-                                            <td><span class="badge badge-green">Confirmed</span></td>
-                                            <td>First visit</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="color:var(--text-primary);font-weight:600">James Liu</td>
-                                            <td>Full Service</td>
-                                            <td>Today</td>
-                                            <td>4:30 PM</td>
-                                            <td><span class="badge badge-blue">Pending</span></td>
-                                            <td>—</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="color:var(--text-primary);font-weight:600">Sophie Turner</td>
-                                            <td>Premium Package</td>
-                                            <td>Tomorrow</td>
-                                            <td>10:00 AM</td>
-                                            <td><span class="badge badge-green">Confirmed</span></td>
-                                            <td>Referred by Mike</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="color:var(--text-primary);font-weight:600">Devon Clarke</td>
-                                            <td>Consultation</td>
-                                            <td>Tomorrow</td>
-                                            <td>2:00 PM</td>
-                                            <td><span class="badge badge-green">Confirmed</span></td>
-                                            <td>Follow-up</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="color:var(--text-primary);font-weight:600">Priya Sharma</td>
-                                            <td>Standard Package</td>
-                                            <td>Mar 26</td>
-                                            <td>11:00 AM</td>
-                                            <td><span class="badge badge-purple">Rescheduled</span></td>
-                                            <td>3rd time</td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody id="activeBookingsBody"></tbody>
                                 </table>
+                            </div>
+                            <div id="activeBookingsPagination"
+                                style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:0.84rem;color:var(--text-secondary);flex-wrap:wrap;gap:8px;">
                             </div>
                         </div>
                     </div>
@@ -2605,10 +2661,35 @@
                         <div class="chart-container">
                             <div class="section-header">
                                 <h3>Past Bookings</h3>
-                                <div style="display:flex;gap:12px;align-items:center;">
-                                    <input type="text" class="search-input" placeholder="Search past bookings..."
-                                        style="margin:0;min-width:250px;">
-                                    <button class="btn btn-outline btn-sm">Export CSV</button>
+                            </div>
+                            <div
+                                style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:10px;">
+                                <div style="display:flex;align-items:center;gap:8px;">
+                                    <span style="font-size:0.84rem;color:var(--text-secondary);">Show</span>
+                                    <select class="sort-select" id="pastBookingPageSize"
+                                        onchange="pastBookingsPage=1;renderPastBookings()" style="min-width:60px;">
+                                        <option value="10" selected>10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                    </select>
+                                    <span style="font-size:0.84rem;color:var(--text-secondary);">entries</span>
+                                </div>
+                                <div style="display:flex;align-items:center;gap:8px;">
+                                    <input class="search-input" placeholder="Search..." id="pastBookingSearch"
+                                        oninput="pastBookingsPage=1;renderPastBookings()"
+                                        style="margin:0;max-width:180px;">
+                                    <div style="display:flex;align-items:center;gap:4px;">
+                                        <input type="date" class="input-field" id="pastBookingFrom"
+                                            onchange="pastBookingsPage=1;renderPastBookings()"
+                                            style="max-width:140px;font-size:0.82rem;">
+                                        <span style="font-size:0.8rem;color:var(--text-muted);">to</span>
+                                        <input type="date" class="input-field" id="pastBookingTo"
+                                            onchange="pastBookingsPage=1;renderPastBookings()"
+                                            style="max-width:140px;font-size:0.82rem;">
+                                    </div>
+                                    <button class="btn btn-outline btn-sm"
+                                        onclick="exportTableCSV('pastBookingsBody', 'past-bookings.csv')">Export
+                                        CSV</button>
                                 </div>
                             </div>
                             <div class="table-container">
@@ -2623,93 +2704,11 @@
                                             <th>Status</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Mar 20, 2026</td>
-                                            <td>10:00 AM</td>
-                                            <td style="color:var(--text-primary);font-weight:600">John Park</td>
-                                            <td>Consultation</td>
-                                            <td>45m</td>
-                                            <td><span class="badge badge-green">Completed</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mar 19, 2026</td>
-                                            <td>2:30 PM</td>
-                                            <td style="color:var(--text-primary);font-weight:600">Emily Davis</td>
-                                            <td>Premium Package</td>
-                                            <td>1h 30m</td>
-                                            <td><span class="badge badge-green">Completed</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mar 18, 2026</td>
-                                            <td>11:00 AM</td>
-                                            <td style="color:var(--text-primary);font-weight:600">Marcus Johnson</td>
-                                            <td>Standard Package</td>
-                                            <td>--</td>
-                                            <td><span class="badge badge-red">No-Show</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mar 18, 2026</td>
-                                            <td>04:15 PM</td>
-                                            <td style="color:var(--text-primary);font-weight:600">Sarah Wilson</td>
-                                            <td>Consultation</td>
-                                            <td>--</td>
-                                            <td><span class="badge"
-                                                    style="background:#f3f4f6;color:#4b5563;border:1px solid #d1d5db">Cancelled</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mar 17, 2026</td>
-                                            <td>09:00 AM</td>
-                                            <td style="color:var(--text-primary);font-weight:600">David Kim</td>
-                                            <td>Full Service</td>
-                                            <td>1h 15m</td>
-                                            <td><span class="badge badge-green">Completed</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mar 16, 2026</td>
-                                            <td>01:00 PM</td>
-                                            <td style="color:var(--text-primary);font-weight:600">Jessica Alba</td>
-                                            <td>Premium Package</td>
-                                            <td>--</td>
-                                            <td><span class="badge"
-                                                    style="background:#fef3c7;color:#d97706;border:1px solid #fde68a">Rescheduled</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mar 15, 2026</td>
-                                            <td>10:30 AM</td>
-                                            <td style="color:var(--text-primary);font-weight:600">Robert Lee</td>
-                                            <td>Consultation</td>
-                                            <td>50m</td>
-                                            <td><span class="badge badge-green">Completed</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mar 14, 2026</td>
-                                            <td>03:00 PM</td>
-                                            <td style="color:var(--text-primary);font-weight:600">Anna Martinez</td>
-                                            <td>Standard Package</td>
-                                            <td>1h 0m</td>
-                                            <td><span class="badge badge-green">Completed</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mar 12, 2026</td>
-                                            <td>11:45 AM</td>
-                                            <td style="color:var(--text-primary);font-weight:600">Unknown Client</td>
-                                            <td>Consultation</td>
-                                            <td>--</td>
-                                            <td><span class="badge badge-red">No-Show</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mar 10, 2026</td>
-                                            <td>02:15 PM</td>
-                                            <td style="color:var(--text-primary);font-weight:600">Michael Chang</td>
-                                            <td>Premium Package</td>
-                                            <td>1h 25m</td>
-                                            <td><span class="badge badge-green">Completed</span></td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody id="pastBookingsBody"></tbody>
                                 </table>
+                            </div>
+                            <div id="pastBookingsPagination"
+                                style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:0.84rem;color:var(--text-secondary);flex-wrap:wrap;gap:8px;">
                             </div>
                         </div>
                     </div>
@@ -2779,7 +2778,8 @@
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         3</div>
                                 </div>
-                                <div style="background:#fff;min-height:110px;padding:8px;">
+                                <div onclick="openDayDetail('2026-03-04')"
+                                    style="background:#fff;min-height:110px;padding:8px;cursor:pointer;">
                                     <div
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         4</div>
@@ -2792,7 +2792,8 @@
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         5</div>
                                 </div>
-                                <div style="background:#fff;min-height:110px;padding:8px;">
+                                <div onclick="openDayDetail('2026-03-06')"
+                                    style="background:#fff;min-height:110px;padding:8px;cursor:pointer;">
                                     <div
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         6</div>
@@ -2817,7 +2818,8 @@
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         9</div>
                                 </div>
-                                <div style="background:#fff;min-height:110px;padding:8px;">
+                                <div onclick="openDayDetail('2026-03-10')"
+                                    style="background:#fff;min-height:110px;padding:8px;cursor:pointer;">
                                     <div
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         10</div>
@@ -2830,7 +2832,8 @@
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         11</div>
                                 </div>
-                                <div style="background:#fff;min-height:110px;padding:8px;">
+                                <div onclick="openDayDetail('2026-03-12')"
+                                    style="background:#fff;min-height:110px;padding:8px;cursor:pointer;">
                                     <div
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         12</div>
@@ -2860,7 +2863,8 @@
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         16</div>
                                 </div>
-                                <div style="background:#fff;min-height:110px;padding:8px;">
+                                <div onclick="openDayDetail('2026-03-17')"
+                                    style="background:#fff;min-height:110px;padding:8px;cursor:pointer;">
                                     <div
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         17</div>
@@ -2873,7 +2877,8 @@
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         18</div>
                                 </div>
-                                <div style="background:#fff;min-height:110px;padding:8px;">
+                                <div onclick="openDayDetail('2026-03-19')"
+                                    style="background:#fff;min-height:110px;padding:8px;cursor:pointer;">
                                     <div
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         19</div>
@@ -2898,7 +2903,8 @@
                                         style="font-size:0.8rem;color:var(--text-muted);font-weight:500;margin-bottom:6px;">
                                         22</div>
                                 </div>
-                                <div style="background:#fff;min-height:110px;padding:8px;">
+                                <div onclick="openDayDetail('2026-03-23')"
+                                    style="background:#fff;min-height:110px;padding:8px;cursor:pointer;">
                                     <div
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         23</div>
@@ -2907,7 +2913,8 @@
                                         9:30 AM - Demo</div>
                                 </div>
                                 <!-- TODAY -->
-                                <div style="background:rgba(99,102,241,0.03);min-height:110px;padding:8px;">
+                                <div onclick="openDayDetail('2026-03-24')"
+                                    style="background:rgba(99,102,241,0.03);min-height:110px;padding:8px;cursor:pointer;">
                                     <div
                                         style="display:inline-block;background:var(--indigo);color:#fff;border-radius:50%;width:24px;height:24px;line-height:24px;text-align:center;font-size:0.8rem;font-weight:700;margin-bottom:6px;">
                                         24</div>
@@ -2918,7 +2925,8 @@
                                         style="background:rgba(16,185,129,0.1);color:var(--green);padding:4px 8px;border-radius:4px;font-size:0.7rem;font-weight:600;margin-bottom:4px;cursor:pointer;">
                                         3:00 PM - Maria R.</div>
                                 </div>
-                                <div style="background:#fff;min-height:110px;padding:8px;">
+                                <div onclick="openDayDetail('2026-03-25')"
+                                    style="background:#fff;min-height:110px;padding:8px;cursor:pointer;">
                                     <div
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         25</div>
@@ -2931,7 +2939,8 @@
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         26</div>
                                 </div>
-                                <div style="background:#fff;min-height:110px;padding:8px;">
+                                <div onclick="openDayDetail('2026-03-27')"
+                                    style="background:#fff;min-height:110px;padding:8px;cursor:pointer;">
                                     <div
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         27</div>
@@ -2956,7 +2965,8 @@
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         30</div>
                                 </div>
-                                <div style="background:#fff;min-height:110px;padding:8px;">
+                                <div onclick="openDayDetail('2026-03-31')"
+                                    style="background:#fff;min-height:110px;padding:8px;cursor:pointer;">
                                     <div
                                         style="font-size:0.8rem;color:var(--text-primary);font-weight:500;margin-bottom:6px;">
                                         31</div>
@@ -2989,134 +2999,70 @@
                         </div>
                     </div>
                     <div id="bookingSub-schedule" style="display:none">
+                        <div class="chart-container" style="margin-bottom:20px;">
+                            <div class="section-header">
+                                <h3>Weekly Schedule</h3>
+                                <button class="btn btn-primary btn-sm" onclick="saveSchedule()">💾 Save Changes</button>
+                            </div>
+                            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:16px;">Set your weekly
+                                availability. Toggle days on/off and adjust working hours.</p>
+                            <div id="weeklyScheduleBody"
+                                style="display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;">
+                            </div>
+                        </div>
+
                         <div class="chart-container">
                             <div class="section-header">
-                                <h3>Today's Agenda</h3>
-                                <div style="display:flex;gap:8px;">
-                                    <input type="date" class="input-field" value="2026-03-24">
-                                </div>
+                                <h3>Blocked Time Slots</h3>
                             </div>
+                            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:16px;">Block specific time
+                                ranges on any day (e.g., lunch break, meetings).</p>
                             <div
-                                style="display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;">
-                                <div style="display:flex;background:#fff;padding:12px 16px;">
-                                    <div style="width:80px;font-weight:600;color:var(--text-muted);font-size:0.85rem;">
-                                        09:00 AM</div>
-                                    <div style="flex:1;">
-                                        <div style="font-size:0.8rem;color:var(--text-muted);font-style:italic">No
-                                            appointments scheduled</div>
-                                    </div>
+                                style="display:flex;gap:10px;align-items:flex-end;margin-bottom:16px;flex-wrap:wrap;padding:16px;background:var(--bg-secondary);border-radius:var(--radius-md);border:1px dashed var(--border);">
+                                <div style="min-width:120px;">
+                                    <label
+                                        style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:4px;">Day</label>
+                                    <select id="blockDay" class="sort-select" style="width:100%;">
+                                        <option>Monday</option>
+                                        <option>Tuesday</option>
+                                        <option>Wednesday</option>
+                                        <option>Thursday</option>
+                                        <option>Friday</option>
+                                        <option>Saturday</option>
+                                        <option>Sunday</option>
+                                    </select>
                                 </div>
-                                <div style="display:flex;background:#fff;padding:12px 16px;">
-                                    <div style="width:80px;font-weight:600;color:var(--text-muted);font-size:0.85rem;">
-                                        10:00 AM</div>
-                                    <div style="flex:1;">
-                                        <div class="booking-card"
-                                            style="margin:0;display:flex;align-items:center;gap:12px;">
-                                            <div class="chat-avatar user"
-                                                style="width:36px;height:36px;font-size:1rem;">👩</div>
-                                            <div style="flex:1">
-                                                <div class="booking-name" style="font-size:0.95rem;">Sophie Turner</div>
-                                                <div style="font-size:0.8rem;color:var(--text-muted);">Premium Package
-                                                </div>
-                                            </div>
-                                            <div style="text-align:right">
-                                                <span class="badge badge-purple" style="font-size:0.7rem">🤖 Handled by
-                                                    AI</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div style="min-width:100px;">
+                                    <label
+                                        style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:4px;">From</label>
+                                    <input type="time" id="blockFrom" class="input-field" value="13:00">
                                 </div>
-                                <div style="display:flex;background:#fff;padding:12px 16px;">
-                                    <div style="width:80px;font-weight:600;color:var(--text-muted);font-size:0.85rem;">
-                                        11:00 AM</div>
-                                    <div style="flex:1;">
-                                        <div class="booking-card"
-                                            style="margin:0;display:flex;align-items:center;gap:12px;">
-                                            <div class="chat-avatar user"
-                                                style="width:36px;height:36px;font-size:1rem;">👨</div>
-                                            <div style="flex:1">
-                                                <div class="booking-name" style="font-size:0.95rem;">Marcus Johnson
-                                                </div>
-                                                <div style="font-size:0.8rem;color:var(--text-muted);">Consultation
-                                                </div>
-                                            </div>
-                                            <div style="text-align:right">
-                                                <span class="badge badge-blue" style="font-size:0.7rem">👤 Assigned:
-                                                    Alex J.</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div style="min-width:100px;">
+                                    <label
+                                        style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:4px;">To</label>
+                                    <input type="time" id="blockTo" class="input-field" value="13:30">
                                 </div>
-                                <div style="display:flex;background:#f9fafb;padding:12px 16px;">
-                                    <div style="width:80px;font-weight:600;color:var(--text-muted);font-size:0.85rem;">
-                                        12:00 PM</div>
-                                    <div style="flex:1;color:var(--text-muted);font-size:0.85rem;font-style:italic;">
-                                        Lunch Break</div>
+                                <div style="flex:1;min-width:160px;">
+                                    <label
+                                        style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:4px;">Reason</label>
+                                    <input type="text" id="blockReason" class="input-field"
+                                        placeholder="e.g., Lunch Break">
                                 </div>
-                                <div style="display:flex;background:#fff;padding:12px 16px;">
-                                    <div style="width:80px;font-weight:600;color:var(--text-muted);font-size:0.85rem;">
-                                        01:00 PM</div>
-                                    <div style="flex:1;">
-                                        <div style="font-size:0.8rem;color:var(--text-muted);font-style:italic">1 hour
-                                            slot available</div>
-                                    </div>
-                                </div>
-                                <div style="display:flex;background:#fff;padding:12px 16px;">
-                                    <div style="width:80px;font-weight:600;color:var(--text-muted);font-size:0.85rem;">
-                                        02:00 PM</div>
-                                    <div style="flex:1;">
-                                        <div class="booking-card"
-                                            style="margin:0;display:flex;align-items:center;gap:12px;">
-                                            <div class="chat-avatar user"
-                                                style="width:36px;height:36px;font-size:1rem;">👨‍🦰</div>
-                                            <div style="flex:1">
-                                                <div class="booking-name" style="font-size:0.95rem;">Devon Clarke</div>
-                                                <div style="font-size:0.8rem;color:var(--text-muted);">Follow-up</div>
-                                            </div>
-                                            <div style="text-align:right">
-                                                <span class="badge badge-purple" style="font-size:0.7rem">🤖 Handled by
-                                                    AI</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="display:flex;background:#fff;padding:12px 16px;">
-                                    <div style="width:80px;font-weight:600;color:var(--text-muted);font-size:0.85rem;">
-                                        03:00 PM</div>
-                                    <div style="flex:1;">
-                                        <div class="booking-card"
-                                            style="margin:0;border-left-color:var(--green);display:flex;align-items:center;gap:12px;">
-                                            <div class="chat-avatar user"
-                                                style="width:36px;height:36px;font-size:1rem;background:rgba(16,185,129,0.1);color:var(--green);">
-                                                👩‍🦱</div>
-                                            <div style="flex:1">
-                                                <div class="booking-name" style="font-size:0.95rem;color:var(--green)">
-                                                    Maria Rodriguez</div>
-                                                <div style="font-size:0.8rem;color:var(--text-muted);">Check-in</div>
-                                            </div>
-                                            <div style="text-align:right">
-                                                <span class="badge badge-blue" style="font-size:0.7rem">👤 Assigned:
-                                                    Alex J.</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="display:flex;background:#fff;padding:12px 16px;">
-                                    <div style="width:80px;font-weight:600;color:var(--text-muted);font-size:0.85rem;">
-                                        04:00 PM</div>
-                                    <div style="flex:1;">
-                                        <div style="font-size:0.8rem;color:var(--text-muted);font-style:italic">1 hour
-                                            slot available</div>
-                                    </div>
-                                </div>
-                                <div style="display:flex;background:#fff;padding:12px 16px;">
-                                    <div style="width:80px;font-weight:600;color:var(--text-muted);font-size:0.85rem;">
-                                        05:00 PM</div>
-                                    <div style="flex:1;">
-                                        <div style="font-size:0.8rem;color:var(--text-muted);font-style:italic">End of
-                                            workday</div>
-                                    </div>
-                                </div>
+                                <button class="btn btn-primary btn-sm" onclick="addBlockedSlot()"
+                                    style="white-space:nowrap;">+ Block Slot</button>
+                            </div>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Day</th>
+                                            <th>Time Range</th>
+                                            <th>Reason</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="blockedSlotsBody"></tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -3124,9 +3070,21 @@
                         <div class="chart-container">
                             <div class="section-header">
                                 <h3>Blocked Dates & Holidays</h3>
-                                <button class="btn btn-primary btn-sm"
-                                    onclick="showToast('Add blocked date dialog opened', 'info')">+ Add Blocked
-                                    Date</button>
+                            </div>
+                            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:16px;">Select a date and
+                                add a reason to block bookings on that day. You can edit or remove blocked dates
+                                anytime.</p>
+                            <div
+                                style="display:flex;gap:10px;align-items:flex-end;margin-bottom:16px;flex-wrap:wrap;padding:16px;background:var(--bg-secondary);border-radius:var(--radius-md);border:1px dashed var(--border);">
+                                <div style="flex:1;min-width:130px;"><label
+                                        style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:4px;">Date</label><input
+                                        type="date" id="holidayDate" class="input-field" value="2026-12-25"></div>
+                                <div style="flex:2;min-width:180px;"><label
+                                        style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:4px;">Reason
+                                        / Event Name</label><input type="text" id="holidayReason" class="input-field"
+                                        placeholder="e.g., Christmas Day"></div>
+                                <button class="btn btn-primary btn-sm" onclick="addHoliday()"
+                                    style="white-space:nowrap;">+ Block This Date</button>
                             </div>
                             <div class="table-container">
                                 <table>
@@ -3139,71 +3097,31 @@
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Jan 01, 2026</td>
-                                            <td style="color:var(--text-primary);font-weight:600">New Year's Day</td>
-                                            <td>System Default</td>
-                                            <td><span class="badge"
-                                                    style="background:#f3f4f6;color:var(--text-muted);">Passed</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-ghost btn-sm">Edit</button>
-                                                <button class="btn btn-ghost btn-sm"
-                                                    style="color:var(--red);">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mar 28, 2026</td>
-                                            <td style="color:var(--text-primary);font-weight:600">Team Offsite</td>
-                                            <td>Alex J.</td>
-                                            <td><span class="badge badge-green">Active</span></td>
-                                            <td>
-                                                <button class="btn btn-ghost btn-sm">Edit</button>
-                                                <button class="btn btn-ghost btn-sm"
-                                                    style="color:var(--red);">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Apr 14, 2026 - Apr 16, 2026</td>
-                                            <td style="color:var(--text-primary);font-weight:600">Company Retreat</td>
-                                            <td>Admin</td>
-                                            <td><span class="badge badge-green">Active</span></td>
-                                            <td>
-                                                <button class="btn btn-ghost btn-sm">Edit</button>
-                                                <button class="btn btn-ghost btn-sm"
-                                                    style="color:var(--red);">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>May 25, 2026</td>
-                                            <td style="color:var(--text-primary);font-weight:600">Memorial Day</td>
-                                            <td>System Default</td>
-                                            <td><span class="badge badge-green">Active</span></td>
-                                            <td>
-                                                <button class="btn btn-ghost btn-sm">Edit</button>
-                                                <button class="btn btn-ghost btn-sm"
-                                                    style="color:var(--red);">Delete</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jun 02, 2026</td>
-                                            <td style="color:var(--text-primary);font-weight:600">Q2 Server Maintenance
-                                            </td>
-                                            <td>IT Department</td>
-                                            <td><span class="badge badge-green">Active</span></td>
-                                            <td>
-                                                <button class="btn btn-ghost btn-sm">Edit</button>
-                                                <button class="btn btn-ghost btn-sm"
-                                                    style="color:var(--red);">Delete</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody id="holidaysTableBody"></tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                </div>
+
+
+                    <!-- Booking Detail Dialog -->
+                    <dialog id="bookingDetailDialog" class="custom-modal" style="max-width:450px;">
+                        <div class="modal-header">
+                            <h3 style="margin:0;font-size:1.15rem;font-weight:700" id="detailDialogTitle">Bookings on
+                                March 24</h3>
+                            <button class="close-btn"
+                                onclick="document.getElementById('bookingDetailDialog').close()">✕</button>
+                        </div>
+                        <div id="detailDialogContent" style="padding:4px 0;"></div>
+                        <div style="display:flex;gap:12px;margin-top:20px;">
+                            <button class="btn btn-outline btn-block"
+                                onclick="document.getElementById('bookingDetailDialog').close()">Close</button>
+                            <button class="btn btn-primary btn-block"
+                                onclick="document.getElementById('bookingDetailDialog').close();openModal()">+ Add
+                                Booking</button>
+                        </div>
+                    </dialog>
+                </div> <!-- End booking-main-view -->
 
                 <div id="booking-settings-view" style="display:none">
                     <div class="admin-booking-grid">
@@ -3346,7 +3264,9 @@
             <div class="page" id="page-customers">
                 <div class="dash-header">
                     <div>
-                        <h2>👥 Customers</h2>
+                        <h2><i data-lucide="users"
+                                style="width:1em;height:1em;vertical-align:middle;display:inline-block"></i> Customers
+                        </h2>
                         <p>Everyone who has contacted your AI agent.</p>
                     </div>
                     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
@@ -3359,7 +3279,8 @@
                             <button class="date-filter-btn" onclick="setDateFilter(this)">2 YEAR</button>
                         </div>
                         <button class="btn btn-primary btn-sm"
-                            onclick="document.getElementById('addCustomerModal').showModal()">+ Add Customer</button>
+                            onclick="document.getElementById('addCustomerModal').showModal()">+ Add
+                            Customer</button>
                         <button class="btn btn-outline btn-sm">Export</button>
                     </div>
                 </div>
@@ -3473,7 +3394,9 @@
             <div class="page" id="page-analytics">
                 <div class="dash-header">
                     <div>
-                        <h2>📊 Analytics</h2>
+                        <h2><i data-lucide="bar-chart-3"
+                                style="width:1em;height:1em;vertical-align:middle;display:inline-block"></i> Analytics
+                        </h2>
                         <p>Comprehensive data center for your AI interactions.</p>
                     </div>
                     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
@@ -3605,28 +3528,35 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td style="font-weight:600;color:var(--text-primary)">🇺🇸 North America</td>
+                                        <td style="font-weight:600;color:var(--text-primary)"><i data-lucide="flag"
+                                                style="width:0.9em;height:0.9em;vertical-align:middle"></i> North
+                                            America
+                                        </td>
                                         <td>1,245</td>
                                         <td>840</td>
                                         <td>2,085</td>
                                         <td><span class="badge badge-green">48.9%</span></td>
                                     </tr>
                                     <tr>
-                                        <td style="font-weight:600;color:var(--text-primary)">🇪🇺 Europe</td>
+                                        <td style="font-weight:600;color:var(--text-primary)"><i data-lucide="flag"
+                                                style="width:0.9em;height:0.9em;vertical-align:middle"></i> Europe</td>
                                         <td>890</td>
                                         <td>420</td>
                                         <td>1,310</td>
                                         <td><span class="badge badge-blue">30.7%</span></td>
                                     </tr>
                                     <tr>
-                                        <td style="font-weight:600;color:var(--text-primary)">🌏 Asia Pacific</td>
+                                        <td style="font-weight:600;color:var(--text-primary)"><i data-lucide="globe"
+                                                style="width:0.9em;height:0.9em;vertical-align:middle"></i> Asia Pacific
+                                        </td>
                                         <td>612</td>
                                         <td>145</td>
                                         <td>757</td>
                                         <td><span class="badge badge-purple">17.7%</span></td>
                                     </tr>
                                     <tr>
-                                        <td style="font-weight:600;color:var(--text-primary)">🌍 Others</td>
+                                        <td style="font-weight:600;color:var(--text-primary)"><i data-lucide="globe-2"
+                                                style="width:0.9em;height:0.9em;vertical-align:middle"></i> Others</td>
                                         <td>100</td>
                                         <td>15</td>
                                         <td>115</td>
@@ -3703,7 +3633,9 @@
             <div class="page" id="page-credits">
                 <div class="dash-header">
                     <div>
-                        <h2>💳 Credits & Billing</h2>
+                        <h2><i data-lucide="credit-card"
+                                style="width:1em;height:1em;vertical-align:middle;display:inline-block"></i> Credits &
+                            Billing</h2>
                         <p>Manage your AI interaction credits and billing.</p>
                     </div>
                     <button class="btn btn-primary">+ Purchase Credits</button>
@@ -3735,22 +3667,32 @@
                         <div
                             style="text-align:center;padding:16px;background:rgba(255,255,255,0.06);border-radius:var(--radius-sm)">
                             <div style="font-size:1.4rem;font-weight:800;color:var(--indigo)">1,248</div>
-                            <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px">📞 AI Calls</div>
+                            <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px"><i data-lucide="phone"
+                                    style="width:0.85em;height:0.85em;vertical-align:middle"></i> AI Calls</div>
                         </div>
                         <div
                             style="text-align:center;padding:16px;background:rgba(255,255,255,0.06);border-radius:var(--radius-sm)">
                             <div style="font-size:1.4rem;font-weight:800;color:var(--green)">312</div>
-                            <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px">💬 Chat Sessions</div>
+                            <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px"><i
+                                    data-lucide="message-square"
+                                    style="width:0.85em;height:0.85em;vertical-align:middle"></i> Chat Sessions
+                            </div>
                         </div>
                         <div
                             style="text-align:center;padding:16px;background:rgba(255,255,255,0.06);border-radius:var(--radius-sm)">
                             <div style="font-size:1.4rem;font-weight:800;color:var(--amber)">142</div>
-                            <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px">📱 SMS Follow-ups</div>
+                            <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px"><i
+                                    data-lucide="smartphone"
+                                    style="width:0.85em;height:0.85em;vertical-align:middle"></i> SMS Follow-ups
+                            </div>
                         </div>
                         <div
                             style="text-align:center;padding:16px;background:rgba(255,255,255,0.06);border-radius:var(--radius-sm)">
                             <div style="font-size:1.4rem;font-weight:800;color:var(--pink)">50</div>
-                            <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px">📄 Transcriptions</div>
+                            <div style="font-size:0.8rem;color:var(--text-muted);margin-top:4px"><i
+                                    data-lucide="file-text"
+                                    style="width:0.85em;height:0.85em;vertical-align:middle"></i> Transcriptions
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3866,7 +3808,8 @@
                         <div class="payment-card-left">
                             <div class="payment-card-icon">VISA</div>
                             <div>
-                                <div style="font-weight:600;font-size:0.88rem;color:var(--text-primary)">•••• •••• ••••
+                                <div style="font-weight:600;font-size:0.88rem;color:var(--text-primary)">•••• ••••
+                                    ••••
                                     4242</div>
                                 <div style="font-size:0.78rem;color:var(--text-muted)">Expires 08/2028</div>
                             </div>
@@ -3879,7 +3822,8 @@
                             <div class="payment-card-icon" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">MC
                             </div>
                             <div>
-                                <div style="font-weight:600;font-size:0.88rem;color:var(--text-primary)">•••• •••• ••••
+                                <div style="font-weight:600;font-size:0.88rem;color:var(--text-primary)">•••• ••••
+                                    ••••
                                     8901</div>
                                 <div style="font-size:0.78rem;color:var(--text-muted)">Expires 12/2027</div>
                             </div>
@@ -3908,18 +3852,22 @@
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question">What happens when I run out of credits?<span
                                 class="faq-arrow">▼</span></div>
-                        <div class="faq-answer">Your AI agent will continue to operate but interactions will be limited.
+                        <div class="faq-answer">Your AI agent will continue to operate but interactions will be
+                            limited.
                             You'll receive email notifications at 20%, 10%, and 5% remaining credits.</div>
                     </div>
                     <div class="faq-item" onclick="toggleFaq(this)">
-                        <div class="faq-question">Can I change my plan anytime?<span class="faq-arrow">▼</span></div>
-                        <div class="faq-answer">Absolutely! You can upgrade or downgrade your plan at any time. Changes
+                        <div class="faq-question">Can I change my plan anytime?<span class="faq-arrow">▼</span>
+                        </div>
+                        <div class="faq-answer">Absolutely! You can upgrade or downgrade your plan at any time.
+                            Changes
                             take effect at the start of the next billing cycle. Unused credits carry over.</div>
                     </div>
                     <div class="faq-item" onclick="toggleFaq(this)">
                         <div class="faq-question">Are there enterprise plans available?<span class="faq-arrow">▼</span>
                         </div>
-                        <div class="faq-answer">Yes, we offer custom enterprise plans for businesses with high-volume
+                        <div class="faq-answer">Yes, we offer custom enterprise plans for businesses with
+                            high-volume
                             needs. Contact our sales team at enterprise@versafic.com for a tailored quote.</div>
                     </div>
                 </div>
@@ -3928,17 +3876,21 @@
             <div class="page" id="page-agent">
                 <div class="dash-header">
                     <div>
-                        <h2>⚙️ AI Settings</h2>
+                        <h2><i data-lucide="settings"
+                                style="width:1em;height:1em;vertical-align:middle;display:inline-block"></i> AI Settings
+                        </h2>
                         <p>Configure how your AI handles calls and chats.</p>
                     </div>
                     <div style="display:flex;gap:10px">
-                        <button class="btn btn-outline btn-sm" onclick="toggleTestPanel()">🎙️ Test AI</button>
+                        <button class="btn btn-outline btn-sm" onclick="toggleTestPanel()"><i data-lucide="mic"
+                                style="width:1em;height:1em;vertical-align:middle"></i> Test AI</button>
                         <button class="btn btn-primary btn-sm">Save Changes</button>
                     </div>
                 </div>
 
                 <div class="settings-section">
-                    <h3>🏷️ Identity & Greeting</h3>
+                    <h3><i data-lucide="tag" style="width:1em;height:1em;vertical-align:middle"></i> Identity & Greeting
+                    </h3>
                     <div class="form-group"><label class="input-label">Display Name</label>
                         <select class="input-field">
                             <option>Advisor</option>
@@ -3962,7 +3914,8 @@
                 </div>
 
                 <div class="settings-section">
-                    <h3>🎙️ Voice & Response</h3>
+                    <h3><i data-lucide="mic" style="width:1em;height:1em;vertical-align:middle"></i> Voice & Response
+                    </h3>
                     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
                         <div class="form-group"><label class="input-label">AI Voice Tone</label>
                             <select class="input-field">
@@ -3997,11 +3950,13 @@
                 </div>
 
                 <div class="settings-section">
-                    <h3>🔧 Behavior & Automation</h3>
+                    <h3><i data-lucide="wrench" style="width:1em;height:1em;vertical-align:middle"></i> Behavior &
+                        Automation</h3>
                     <div class="setting-row">
                         <div class="setting-info">
                             <div class="setting-label">Escalation Threshold</div>
-                            <div class="setting-desc">Number of failed attempts before escalating to human agent.</div>
+                            <div class="setting-desc">Number of failed attempts before escalating to human agent.
+                            </div>
                         </div>
                         <div class="setting-control"><select class="input-field" style="width:80px">
                                 <option>2</option>
@@ -4013,7 +3968,8 @@
                     <div class="setting-row">
                         <div class="setting-info">
                             <div class="setting-label">Auto Booking</div>
-                            <div class="setting-desc">Allow AI to automatically create bookings when a customer requests
+                            <div class="setting-desc">Allow AI to automatically create bookings when a customer
+                                requests
                                 one.</div>
                         </div>
                         <div class="setting-control"><label class="toggle-switch"><input type="checkbox" checked>
@@ -4042,7 +3998,8 @@
                     <div class="setting-row">
                         <div class="setting-info">
                             <div class="setting-label">Call Transcripts</div>
-                            <div class="setting-desc">Generate text transcripts of all AI-handled calls automatically.
+                            <div class="setting-desc">Generate text transcripts of all AI-handled calls
+                                automatically.
                             </div>
                         </div>
                         <div class="setting-control"><label class="toggle-switch"><input type="checkbox" checked>
@@ -4052,7 +4009,8 @@
                     <div class="setting-row">
                         <div class="setting-info">
                             <div class="setting-label">Forward to Human Agent</div>
-                            <div class="setting-desc">Route complex or escalated queries to a live representative.</div>
+                            <div class="setting-desc">Route complex or escalated queries to a live representative.
+                            </div>
                         </div>
                         <div class="setting-control"><label class="toggle-switch"><input type="checkbox" checked>
                                 <div class="toggle-track"></div>
@@ -4061,7 +4019,8 @@
                     <div class="setting-row">
                         <div class="setting-info">
                             <div class="setting-label">SMS Follow-up & Links</div>
-                            <div class="setting-desc">Send booking links and connect profiles via SMS during live calls.
+                            <div class="setting-desc">Send booking links and connect profiles via SMS during live
+                                calls.
                             </div>
                         </div>
                         <div class="setting-control"><label class="toggle-switch"><input type="checkbox">
@@ -4071,39 +4030,55 @@
                 </div>
 
                 <div class="settings-section">
-                    <h3>🎯 Active Intents</h3>
-                    <p style="font-size:0.84rem;margin-bottom:16px;color:var(--text-muted)">Enable or disable the types
+                    <h3><i data-lucide="target" style="width:1em;height:1em;vertical-align:middle"></i> Active Intents
+                    </h3>
+                    <p style="font-size:0.84rem;margin-bottom:16px;color:var(--text-muted)">Enable or disable the
+                        types
                         of customer intents your AI agent can handle.</p>
                     <div class="intent-grid">
                         <div class="intent-item"><input type="checkbox" id="int-bookings" checked><label
-                                for="int-bookings">📅 Bookings</label></div>
+                                for="int-bookings"><i data-lucide="calendar"
+                                    style="width:1em;height:1em;vertical-align:middle"></i> Bookings</label></div>
                         <div class="intent-item"><input type="checkbox" id="int-appointments" checked><label
-                                for="int-appointments">🗓️ Appointments</label></div>
+                                for="int-appointments"><i data-lucide="calendar-days"
+                                    style="width:1em;height:1em;vertical-align:middle"></i> Appointments</label></div>
                         <div class="intent-item"><input type="checkbox" id="int-support" checked><label
-                                for="int-support">🛟 Customer Support</label></div>
+                                for="int-support"><i data-lucide="life-buoy"
+                                    style="width:1em;height:1em;vertical-align:middle"></i> Customer Support</label>
+                        </div>
                         <div class="intent-item"><input type="checkbox" id="int-inquiry" checked><label
-                                for="int-inquiry">❓ Inquiry Resolution</label></div>
-                        <div class="intent-item"><input type="checkbox" id="int-info" checked><label for="int-info">📖
+                                for="int-inquiry"><i data-lucide="help-circle"
+                                    style="width:1em;height:1em;vertical-align:middle"></i> Inquiry Resolution</label>
+                        </div>
+                        <div class="intent-item"><input type="checkbox" id="int-info" checked><label for="int-info"><i
+                                    data-lucide="book-open" style="width:1em;height:1em;vertical-align:middle"></i>
                                 Information Retrieval</label></div>
                         <div class="intent-item"><input type="checkbox" id="int-recommend" checked><label
-                                for="int-recommend">💡 Recommendation</label></div>
-                        <div class="intent-item"><input type="checkbox" id="int-lead" checked><label for="int-lead">🎯
+                                for="int-recommend"><i data-lucide="lightbulb"
+                                    style="width:1em;height:1em;vertical-align:middle"></i> Recommendation</label></div>
+                        <div class="intent-item"><input type="checkbox" id="int-lead" checked><label for="int-lead"><i
+                                    data-lucide="target" style="width:1em;height:1em;vertical-align:middle"></i>
                                 Lead Identification/Generation</label></div>
-                        <div class="intent-item"><input type="checkbox" id="int-spam"><label for="int-spam">🛡️ Spam
+                        <div class="intent-item"><input type="checkbox" id="int-spam"><label for="int-spam"><i
+                                    data-lucide="shield-alert" style="width:1em;height:1em;vertical-align:middle"></i>
+                                Spam
                                 Call Detection</label></div>
                     </div>
                 </div>
 
                 <div id="testPanelWrap" style="display:none">
                     <div class="settings-section">
-                        <h3>🎙️ Test Your AI Agent</h3>
+                        <h3><i data-lucide="mic" style="width:1em;height:1em;vertical-align:middle"></i> Test Your AI
+                            Agent</h3>
                         <p style="font-size:0.84rem;margin-bottom:16px;color:var(--text-muted)">Simulate a customer
                             interaction to see how your AI responds.</p>
                         <div class="ai-test-panel">
                             <div id="chatMessages">
                                 <div class="chat-bubble">
-                                    <div class="chat-avatar ai">🤖</div>
-                                    <div class="chat-msg">Hi! You've reached Grand Horizon Hotel. I'm your AI concierge,
+                                    <div class="chat-avatar ai"><i data-lucide="bot"
+                                            style="width:1.2em;height:1.2em"></i></div>
+                                    <div class="chat-msg">Hi! You've reached Grand Horizon Hotel. I'm your AI
+                                        concierge,
                                         available 24/7. How can I help you today?</div>
                                 </div>
                             </div>
@@ -4297,8 +4272,8 @@
                 if (md[pageId]) {
                     targetStats.forEach((st, i) => { if (md[pageId][i]) st.innerHTML = md[pageId][i]; });
                 }
-                if (pageId === 'page-calls' && typeof renderCallsTable !== 'undefined') renderCallsTable(md.callsTbody);
-                if (pageId === 'page-chats' && typeof renderChatsTable !== 'undefined') renderChatsTable(md.chatsTbody);
+                if (pageId === 'page-calls') { callsPage = 1; filterCallsTable(); }
+                if (pageId === 'page-chats') { chatsPage = 1; filterChatsTable(); }
 
                 // Fade back in
                 page.style.opacity = '1';
@@ -4376,10 +4351,10 @@
         function renderVolumeChart(chartId, labelsId) {
             const el = document.getElementById(chartId), lblEl = document.getElementById(labelsId); if (!el) return;
             let html = '', labels = [];
-            for (let i = 0; i < 14; i++) {
+            for (let i = 0; i < 7; i++) {
                 const calls = Math.floor(Math.random() * 120) + 80, chats = Math.floor(Math.random() * 60) + 30;
                 html += `<div class="volume-bar-group"><div class="volume-bar" style="height:${calls / 200 * 160}px;background:linear-gradient(180deg,#6366f1,#818cf8);box-shadow:0 2px 6px rgba(99,102,241,0.2)" title="${calls} calls"></div><div class="volume-bar" style="height:${chats / 200 * 160}px;background:linear-gradient(180deg,#10b981,#34d399);box-shadow:0 2px 6px rgba(16,185,129,0.2)" title="${chats} chats"></div></div>`;
-                labels.push(`Mar ${14 + i}`);
+                labels.push(`Mar ${22 + i}`);
             }
             el.innerHTML = html;
             if (lblEl) lblEl.innerHTML = labels.map(l => `<span>${l}</span>`).join('');
@@ -4390,8 +4365,22 @@
         const baseWeekStart = new Date(2026, 2, 22);
         let dayAvailability = {};
         let bookingsList = [
-            { date: '2026-03-23', time: '09:30', name: 'Maria Rodriguez' }, { date: '2026-03-23', time: '14:00', name: 'James Liu' },
-            { date: '2026-03-25', time: '11:00', name: 'Sophie Turner' }, { date: '2026-03-26', time: '15:30', name: 'Devon Clarke' }
+            { date: '2026-03-02', time: '09:00', name: 'John Smith' },
+            { date: '2026-03-02', time: '14:30', name: 'Emma White' },
+            { date: '2026-03-04', time: '11:00', name: 'QBR Meeting' },
+            { date: '2026-03-06', time: '15:30', name: 'Support Review' },
+            { date: '2026-03-10', time: '09:30', name: 'Urgent - Mike T.' },
+            { date: '2026-03-12', time: '13:00', name: 'Interview - Alex K.' },
+            { date: '2026-03-17', time: '10:00', name: 'Jane D.' },
+            { date: '2026-03-19', time: '13:30', name: 'Strategy Session' },
+            { date: '2026-03-23', time: '09:30', name: 'Demo Session' },
+            { date: '2026-03-23', time: '14:00', name: 'James Liu' },
+            { date: '2026-03-24', time: '10:00', name: 'Sarah Wilson' },
+            { date: '2026-03-24', time: '11:30', name: 'Board Meeting' },
+            { date: '2026-03-24', time: '14:00', name: 'Devon Clarke' },
+            { date: '2026-03-25', time: '10:00', name: 'Sophie Turner' },
+            { date: '2026-03-27', time: '16:00', name: 'Review - Client' },
+            { date: '2026-03-31', time: '14:00', name: 'Closing Call' }
         ];
         function getWeekDates() {
             const dates = [];
@@ -4465,7 +4454,7 @@
             showToast('📥 Exported ' + filename, 'success');
         }
 
-        // ===== CALLS TABLE DATA =====
+        // ===== CALLS TABLE WITH PAGINATION =====
         const callsData = [
             { name: 'Sarah Wilson', intent: 'Bookings', outcome: 'Resolved', status: 'Completed', date: 'Mar 28, 2026', duration: '2m 14s', credits: '2' },
             { name: 'Mike Thompson', intent: 'Customer Support', outcome: 'Resolved', status: 'Completed', date: 'Mar 28, 2026', duration: '3m 52s', credits: '4' },
@@ -4476,8 +4465,27 @@
             { name: 'Robert Lee', intent: 'Information Retrieval', outcome: 'Escalated', status: 'Transferred', date: 'Mar 27, 2026', duration: '4m 12s', credits: '4' },
             { name: 'Anna Martinez', intent: 'Recommendation', outcome: 'Resolved', status: 'Completed', date: 'Mar 26, 2026', duration: '2m 05s', credits: '2' },
             { name: 'David Kim', intent: 'Lead Generation', outcome: 'Resolved', status: 'Completed', date: 'Mar 26, 2026', duration: '3m 30s', credits: '3' },
-            { name: 'Unknown', intent: 'Spam Call', outcome: 'Blocked', status: 'Blocked', date: 'Mar 26, 2026', duration: '0m 02s', credits: '0' }
+            { name: 'Unknown', intent: 'Spam Call', outcome: 'Blocked', status: 'Blocked', date: 'Mar 26, 2026', duration: '0m 02s', credits: '0' },
+            { name: 'Jessica Tang', intent: 'Bookings', outcome: 'Resolved', status: 'Completed', date: 'Mar 25, 2026', duration: '1m 55s', credits: '2' },
+            { name: 'Marcus Brown', intent: 'Customer Support', outcome: 'Escalated', status: 'Transferred', date: 'Mar 25, 2026', duration: '5m 10s', credits: '5' },
+            { name: 'Priya Sharma', intent: 'Appointments', outcome: 'Resolved', status: 'Completed', date: 'Mar 25, 2026', duration: '2m 22s', credits: '2' },
+            { name: 'Carlos Ruiz', intent: 'Information Retrieval', outcome: 'Resolved', status: 'Completed', date: 'Mar 24, 2026', duration: '1m 44s', credits: '1' },
+            { name: 'Aisha Patel', intent: 'Recommendation', outcome: 'Resolved', status: 'Completed', date: 'Mar 24, 2026', duration: '3m 08s', credits: '3' },
+            { name: 'Tom Wright', intent: 'Lead Generation', outcome: 'Resolved', status: 'Completed', date: 'Mar 24, 2026', duration: '2m 33s', credits: '2' },
+            { name: 'Nina Kowalski', intent: 'Customer Support', outcome: 'Resolved', status: 'Completed', date: 'Mar 23, 2026', duration: '4m 01s', credits: '4' },
+            { name: 'Jake Foster', intent: 'Bookings', outcome: 'Resolved', status: 'Completed', date: 'Mar 23, 2026', duration: '1m 12s', credits: '1' },
+            { name: 'Mei Lin', intent: 'Inquiry Resolution', outcome: 'Resolved', status: 'Completed', date: 'Mar 22, 2026', duration: '2m 47s', credits: '2' },
+            { name: 'Dmitri Volkov', intent: 'Appointments', outcome: 'Resolved', status: 'Completed', date: 'Mar 22, 2026', duration: '3m 15s', credits: '3' },
+            { name: 'Olivia Hayes', intent: 'Customer Support', outcome: 'Resolved', status: 'Completed', date: 'Mar 21, 2026', duration: '1m 58s', credits: '2' },
+            { name: 'Liam O\'Brien', intent: 'Bookings', outcome: 'Resolved', status: 'Completed', date: 'Mar 21, 2026', duration: '2m 40s', credits: '2' },
+            { name: 'Fatima Al-Said', intent: 'Information Retrieval', outcome: 'Resolved', status: 'Completed', date: 'Mar 20, 2026', duration: '1m 33s', credits: '1' },
+            { name: 'George Nakamura', intent: 'Lead Generation', outcome: 'Escalated', status: 'Transferred', date: 'Mar 20, 2026', duration: '6m 02s', credits: '6' },
+            { name: 'Sofia Mendez', intent: 'Recommendation', outcome: 'Resolved', status: 'Completed', date: 'Mar 19, 2026', duration: '2m 19s', credits: '2' },
+            { name: 'Ryan Cooper', intent: 'Customer Support', outcome: 'Resolved', status: 'Completed', date: 'Mar 19, 2026', duration: '3m 45s', credits: '4' },
+            { name: 'Telemarketer', intent: 'Spam Call', outcome: 'Blocked', status: 'Blocked', date: 'Mar 18, 2026', duration: '0m 03s', credits: '0' },
+            { name: 'Hannah Green', intent: 'Appointments', outcome: 'Resolved', status: 'Completed', date: 'Mar 18, 2026', duration: '2m 11s', credits: '2' }
         ];
+        let callsPage = 1;
         function renderCallsTable(data) {
             const tb = document.getElementById('callsTableBody'); if (!tb) return;
             const intentBadge = i => ({ Bookings: 'badge-green', Appointments: 'badge-blue', 'Customer Support': 'badge-purple', 'Inquiry Resolution': 'badge-blue', 'Information Retrieval': 'badge-amber', Recommendation: 'badge-green', 'Lead Generation': 'badge-purple', 'Spam Call': 'badge-red' })[i] || 'badge-blue';
@@ -4487,10 +4495,16 @@
         function filterCallsTable() {
             const search = (document.getElementById('callSearchInput')?.value || '').toLowerCase();
             const intent = document.getElementById('callIntentFilter')?.value || '';
-            renderCallsTable(callsData.filter(r => r.name.toLowerCase().includes(search) && (!intent || r.intent === intent)));
+            const size = parseInt(document.getElementById('callPageSize')?.value || '25');
+            const filtered = callsData.filter(r => r.name.toLowerCase().includes(search) && (!intent || r.intent === intent));
+            const totalPages = Math.max(1, Math.ceil(filtered.length / size));
+            if (callsPage > totalPages) callsPage = totalPages;
+            const start = (callsPage - 1) * size;
+            renderCallsTable(filtered.slice(start, start + size));
+            renderPagination('callsPagination', filtered.length, size, callsPage, totalPages, function (p) { callsPage = p; filterCallsTable(); });
         }
 
-        // ===== CHATS TABLE DATA =====
+        // ===== CHATS TABLE WITH PAGINATION =====
         const chatsData = [
             { name: 'Website Visitor 492', intent: 'Bookings', outcome: 'Resolved', status: 'Completed', date: 'Mar 28, 2026', messages: '24', credits: '2' },
             { name: '+1 (555) 876-5432', intent: 'Inquiry Resolution', outcome: 'Resolved', status: 'Completed', date: 'Mar 28, 2026', messages: '8', credits: '1' },
@@ -4499,8 +4513,25 @@
             { name: 'SMS +1 (555) 445-6789', intent: 'Information Retrieval', outcome: 'Escalated', status: 'Transferred', date: 'Mar 27, 2026', messages: '18', credits: '2' },
             { name: 'Website Visitor 501', intent: 'Recommendation', outcome: 'Resolved', status: 'Completed', date: 'Mar 27, 2026', messages: '10', credits: '1' },
             { name: 'Chat User 88', intent: 'Lead Generation', outcome: 'Resolved', status: 'Completed', date: 'Mar 26, 2026', messages: '14', credits: '2' },
-            { name: 'Spam Bot', intent: 'Spam Call', outcome: 'Blocked', status: 'Blocked', date: 'Mar 26, 2026', messages: '2', credits: '0' }
+            { name: 'Spam Bot', intent: 'Spam Call', outcome: 'Blocked', status: 'Blocked', date: 'Mar 26, 2026', messages: '2', credits: '0' },
+            { name: 'Website Visitor 510', intent: 'Bookings', outcome: 'Resolved', status: 'Completed', date: 'Mar 25, 2026', messages: '16', credits: '2' },
+            { name: 'WhatsApp +91 98765', intent: 'Customer Support', outcome: 'Resolved', status: 'Completed', date: 'Mar 25, 2026', messages: '22', credits: '3' },
+            { name: 'Chat User 102', intent: 'Appointments', outcome: 'Resolved', status: 'Completed', date: 'Mar 24, 2026', messages: '9', credits: '1' },
+            { name: 'Website Visitor 515', intent: 'Recommendation', outcome: 'Resolved', status: 'Completed', date: 'Mar 24, 2026', messages: '11', credits: '1' },
+            { name: 'SMS +1 (555) 321-9876', intent: 'Inquiry Resolution', outcome: 'Resolved', status: 'Completed', date: 'Mar 23, 2026', messages: '7', credits: '1' },
+            { name: 'Website Visitor 520', intent: 'Lead Generation', outcome: 'Resolved', status: 'Completed', date: 'Mar 23, 2026', messages: '20', credits: '2' },
+            { name: 'WhatsApp User 44', intent: 'Customer Support', outcome: 'Escalated', status: 'Transferred', date: 'Mar 22, 2026', messages: '28', credits: '4' },
+            { name: 'Chat User 130', intent: 'Bookings', outcome: 'Resolved', status: 'Completed', date: 'Mar 22, 2026', messages: '5', credits: '1' },
+            { name: 'Website Visitor 525', intent: 'Information Retrieval', outcome: 'Resolved', status: 'Completed', date: 'Mar 21, 2026', messages: '13', credits: '1' },
+            { name: 'SMS +1 (555) 654-3210', intent: 'Appointments', outcome: 'Resolved', status: 'Completed', date: 'Mar 21, 2026', messages: '8', credits: '1' },
+            { name: 'Bot Detector', intent: 'Spam Call', outcome: 'Blocked', status: 'Blocked', date: 'Mar 20, 2026', messages: '1', credits: '0' },
+            { name: 'Website Visitor 530', intent: 'Recommendation', outcome: 'Resolved', status: 'Completed', date: 'Mar 20, 2026', messages: '15', credits: '2' },
+            { name: 'WhatsApp +44 7700', intent: 'Bookings', outcome: 'Resolved', status: 'Completed', date: 'Mar 19, 2026', messages: '19', credits: '2' },
+            { name: 'Chat User 145', intent: 'Customer Support', outcome: 'Resolved', status: 'Completed', date: 'Mar 19, 2026', messages: '10', credits: '1' },
+            { name: 'Website Visitor 535', intent: 'Lead Generation', outcome: 'Resolved', status: 'Completed', date: 'Mar 18, 2026', messages: '17', credits: '2' },
+            { name: 'SMS +1 (555) 111-2222', intent: 'Inquiry Resolution', outcome: 'Resolved', status: 'Completed', date: 'Mar 18, 2026', messages: '6', credits: '1' }
         ];
+        let chatsPage = 1;
         function renderChatsTable(data) {
             const tb = document.getElementById('chatsTableBody'); if (!tb) return;
             const intentBadge = i => ({ Bookings: 'badge-green', Appointments: 'badge-blue', 'Customer Support': 'badge-purple', 'Inquiry Resolution': 'badge-blue', 'Information Retrieval': 'badge-amber', Recommendation: 'badge-green', 'Lead Generation': 'badge-purple', 'Spam Call': 'badge-red' })[i] || 'badge-blue';
@@ -4510,7 +4541,288 @@
         function filterChatsTable() {
             const search = (document.getElementById('chatSearchInput')?.value || '').toLowerCase();
             const intent = document.getElementById('chatIntentFilter')?.value || '';
-            renderChatsTable(chatsData.filter(r => r.name.toLowerCase().includes(search) && (!intent || r.intent === intent)));
+            const size = parseInt(document.getElementById('chatPageSize')?.value || '25');
+            const filtered = chatsData.filter(r => r.name.toLowerCase().includes(search) && (!intent || r.intent === intent));
+            const totalPages = Math.max(1, Math.ceil(filtered.length / size));
+            if (chatsPage > totalPages) chatsPage = totalPages;
+            const start = (chatsPage - 1) * size;
+            renderChatsTable(filtered.slice(start, start + size));
+            renderPagination('chatsPagination', filtered.length, size, chatsPage, totalPages, function (p) { chatsPage = p; filterChatsTable(); });
+        }
+
+        // ===== SHARED PAGINATION RENDERER =====
+        function renderPagination(containerId, total, size, page, totalPages, goToPage) {
+            const el = document.getElementById(containerId); if (!el) return;
+            const start = (page - 1) * size + 1;
+            const end = Math.min(page * size, total);
+            let btns = '';
+            btns += `<button class="btn btn-outline btn-sm" style="padding:4px 8px;" data-pg="1" ${page <= 1 ? 'disabled' : ''}>«</button>`;
+            btns += `<button class="btn btn-outline btn-sm" style="padding:4px 8px;" data-pg="${page - 1}" ${page <= 1 ? 'disabled' : ''}>‹</button>`;
+            const maxBtns = 5;
+            let startP = Math.max(1, page - 2), endP = Math.min(totalPages, startP + maxBtns - 1);
+            if (endP - startP < maxBtns - 1) startP = Math.max(1, endP - maxBtns + 1);
+            for (let i = startP; i <= endP; i++) {
+                btns += `<button class="btn ${i === page ? 'btn-primary' : 'btn-outline'} btn-sm" style="padding:4px 10px;" data-pg="${i}">${i}</button>`;
+            }
+            btns += `<button class="btn btn-outline btn-sm" style="padding:4px 8px;" data-pg="${page + 1}" ${page >= totalPages ? 'disabled' : ''}>›</button>`;
+            btns += `<button class="btn btn-outline btn-sm" style="padding:4px 8px;" data-pg="${totalPages}" ${page >= totalPages ? 'disabled' : ''}>»</button>`;
+            el.innerHTML = `<div>Showing ${total > 0 ? start : 0} to ${end} of ${total} entries</div><div style="display:flex;gap:4px;">${btns}</div>`;
+            el.querySelectorAll('button[data-pg]').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const pg = parseInt(this.getAttribute('data-pg'));
+                    if (pg >= 1 && pg <= totalPages) goToPage(pg);
+                });
+            });
+        }
+
+        // ===== WEEKLY SCHEDULE =====
+        const weeklySchedule = [
+            { day: 'Monday', active: true, from: '09:00', to: '17:00' },
+            { day: 'Tuesday', active: true, from: '09:00', to: '17:00' },
+            { day: 'Wednesday', active: true, from: '09:00', to: '17:00' },
+            { day: 'Thursday', active: true, from: '09:00', to: '17:00' },
+            { day: 'Friday', active: true, from: '09:00', to: '17:00' },
+            { day: 'Saturday', active: false, from: '10:00', to: '14:00' },
+            { day: 'Sunday', active: false, from: '10:00', to: '14:00' }
+        ];
+        function renderWeeklySchedule() {
+            const el = document.getElementById('weeklyScheduleBody'); if (!el) return;
+            el.innerHTML = weeklySchedule.map((d, i) => {
+                const bg = d.active ? '#fff' : '#f9fafb';
+                const opacity = d.active ? '1' : '0.5';
+                return `<div style="display:flex;align-items:center;gap:16px;padding:14px 18px;background:${bg};">
+                    <div style="width:110px;font-weight:700;font-size:0.95rem;color:var(--text-primary);">${d.day}</div>
+                    <label style="position:relative;display:inline-block;width:44px;height:24px;cursor:pointer;">
+                        <input type="checkbox" ${d.active ? 'checked' : ''} onchange="weeklySchedule[${i}].active=this.checked;renderWeeklySchedule()" style="opacity:0;width:0;height:0;">
+                        <span style="position:absolute;top:0;left:0;right:0;bottom:0;background:${d.active ? 'var(--indigo)' : '#d1d5db'};border-radius:24px;transition:0.3s;"></span>
+                        <span style="position:absolute;left:${d.active ? '22px' : '3px'};top:3px;width:18px;height:18px;background:#fff;border-radius:50%;transition:0.3s;box-shadow:0 1px 3px rgba(0,0,0,0.2);"></span>
+                    </label>
+                    <div style="display:flex;align-items:center;gap:8px;opacity:${opacity};transition:opacity 0.3s;">
+                        <input type="time" class="input-field" value="${d.from}" onchange="weeklySchedule[${i}].from=this.value" style="max-width:120px;font-size:0.85rem;" ${d.active ? '' : 'disabled'}>
+                        <span style="font-size:0.8rem;color:var(--text-muted);">to</span>
+                        <input type="time" class="input-field" value="${d.to}" onchange="weeklySchedule[${i}].to=this.value" style="max-width:120px;font-size:0.85rem;" ${d.active ? '' : 'disabled'}>
+                    </div>
+                    <div style="flex:1;text-align:right;">
+                        <span class="badge ${d.active ? 'badge-green' : ''}" style="${!d.active ? 'background:#f3f4f6;color:#9ca3af;' : ''}">${d.active ? 'Available' : 'Closed'}</span>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+        function saveSchedule() {
+            showToast('✅ Weekly schedule saved successfully!', 'success');
+        }
+
+        // ===== BLOCKED TIME SLOTS =====
+        const blockedSlots = [
+            { day: 'Monday', from: '13:00', to: '13:30', reason: 'Lunch Break' },
+            { day: 'Wednesday', from: '13:00', to: '13:30', reason: 'Lunch Break' },
+            { day: 'Friday', from: '15:00', to: '15:30', reason: 'Team Standup' }
+        ];
+        function renderBlockedSlots() {
+            const tb = document.getElementById('blockedSlotsBody'); if (!tb) return;
+            if (blockedSlots.length === 0) {
+                tb.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:24px;color:var(--text-muted);font-style:italic;">No blocked time slots. Add one above.</td></tr>';
+                return;
+            }
+            tb.innerHTML = blockedSlots.map((s, i) => {
+                const fmt = t => { const [h, m] = t.split(':'); const hr = parseInt(h); return (hr % 12 || 12) + ':' + m + ' ' + (hr >= 12 ? 'PM' : 'AM'); };
+                return `<tr>
+                    <td style="font-weight:600;color:var(--text-primary);">${s.day}</td>
+                    <td>${fmt(s.from)} – ${fmt(s.to)}</td>
+                    <td>${s.reason}</td>
+                    <td><button class="btn btn-ghost btn-sm" style="color:var(--red);" onclick="blockedSlots.splice(${i},1);renderBlockedSlots();showToast('🗑️ Blocked slot removed','info')">Remove</button></td>
+                </tr>`;
+            }).join('');
+        }
+        function addBlockedSlot() {
+            const day = document.getElementById('blockDay').value;
+            const from = document.getElementById('blockFrom').value;
+            const to = document.getElementById('blockTo').value;
+            const reason = document.getElementById('blockReason').value.trim();
+            if (!from || !to || !reason) { showToast('⚠️ Please fill all fields.', 'error'); return; }
+            if (from >= to) { showToast('⚠️ "From" time must be before "To" time.', 'error'); return; }
+            blockedSlots.push({ day, from, to, reason });
+            renderBlockedSlots();
+            document.getElementById('blockReason').value = '';
+            showToast('🚫 ' + day + ' ' + from + '-' + to + ' blocked: ' + reason, 'success');
+        }
+
+        // ===== HOLIDAYS DATA & RENDER =====
+        const holidaysData = [
+            { dateISO: '2026-01-01', display: 'Jan 01, 2026', name: "New Year's Day", by: 'System Default' },
+            { dateISO: '2026-03-28', display: 'Mar 28, 2026', name: 'Team Offsite', by: 'Alex J.' },
+            { dateISO: '2026-04-14', display: 'Apr 14, 2026', name: 'Company Retreat', by: 'Admin' },
+            { dateISO: '2026-05-25', display: 'May 25, 2026', name: 'Memorial Day', by: 'System Default' },
+            { dateISO: '2026-06-02', display: 'Jun 02, 2026', name: 'Q2 Server Maintenance', by: 'IT Department' },
+            { dateISO: '2026-12-25', display: 'Dec 25, 2026', name: 'Christmas Day', by: 'System Default' }
+        ];
+        let editingHolidayIdx = -1;
+        function renderHolidays() {
+            const tb = document.getElementById('holidaysTableBody'); if (!tb) return;
+            const today = new Date().toISOString().split('T')[0];
+            tb.innerHTML = holidaysData.map((h, i) => {
+                const passed = h.dateISO < today;
+                const statusBadge = passed ? '<span class="badge" style="background:#f3f4f6;color:var(--text-muted);">Passed</span>' : '<span class="badge badge-green">Active</span>';
+                if (editingHolidayIdx === i) {
+                    return `<tr style="background:#f0f9ff;">
+                        <td><input type="date" class="input-field" value="${h.dateISO}" id="editHolidayDate" style="max-width:160px;font-size:0.85rem;"></td>
+                        <td><input type="text" class="input-field" value="${h.name}" id="editHolidayName" style="max-width:200px;font-size:0.85rem;"></td>
+                        <td>${h.by}</td>
+                        <td>${statusBadge}</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm" onclick="saveHolidayEdit(${i})">Save</button>
+                            <button class="btn btn-outline btn-sm" onclick="editingHolidayIdx=-1;renderHolidays()">Cancel</button>
+                        </td>
+                    </tr>`;
+                }
+                return `<tr>
+                    <td>${h.display}</td>
+                    <td style="color:var(--text-primary);font-weight:600">${h.name}</td>
+                    <td>${h.by}</td>
+                    <td>${statusBadge}</td>
+                    <td>
+                        <button class="btn btn-ghost btn-sm" onclick="editingHolidayIdx=${i};renderHolidays()">Edit</button>
+                        <button class="btn btn-ghost btn-sm" style="color:var(--red);" onclick="deleteHoliday(${i})">Delete</button>
+                    </td>
+                </tr>`;
+            }).join('');
+        }
+        function addHoliday() {
+            const dateEl = document.getElementById('holidayDate');
+            const reasonEl = document.getElementById('holidayReason');
+            const date = dateEl.value;
+            const reason = reasonEl.value.trim();
+            if (!date || !reason) { showToast('⚠️ Please provide both a date and a reason.', 'error'); return; }
+            const d = new Date(date + 'T00:00:00');
+            const formatted = d.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
+            holidaysData.push({ dateISO: date, display: formatted, name: reason, by: 'You' });
+            holidaysData.sort((a, b) => a.dateISO.localeCompare(b.dateISO));
+            renderHolidays();
+            reasonEl.value = '';
+            showToast('🎉 ' + reason + ' on ' + formatted + ' has been blocked!', 'success');
+        }
+        function deleteHoliday(idx) {
+            const name = holidaysData[idx].name;
+            holidaysData.splice(idx, 1);
+            renderHolidays();
+            showToast('🗑️ "' + name + '" removed.', 'info');
+        }
+        function saveHolidayEdit(idx) {
+            const newDate = document.getElementById('editHolidayDate').value;
+            const newName = document.getElementById('editHolidayName').value.trim();
+            if (!newDate || !newName) { showToast('⚠️ Please fill both fields.', 'error'); return; }
+            const d = new Date(newDate + 'T00:00:00');
+            const formatted = d.toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
+            holidaysData[idx].dateISO = newDate;
+            holidaysData[idx].display = formatted;
+            holidaysData[idx].name = newName;
+            editingHolidayIdx = -1;
+            holidaysData.sort((a, b) => a.dateISO.localeCompare(b.dateISO));
+            renderHolidays();
+            showToast('✅ Holiday updated!', 'success');
+        }
+
+        // ===== OPEN DAY DETAIL (Calendar click) =====
+        function openDayDetail(dateStr) {
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            const d = new Date(dateStr + 'T00:00:00');
+            const title = monthNames[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+            document.getElementById('detailDialogTitle').textContent = 'Bookings on ' + title;
+            const bks = bookingsList.filter(b => b.date === dateStr).sort((a, b) => a.time.localeCompare(b.time));
+            const content = document.getElementById('detailDialogContent');
+            if (bks.length === 0) {
+                content.innerHTML = '<div style="text-align:center;padding:24px 0;color:var(--text-muted);font-size:0.9rem;">No bookings scheduled for this day.</div>';
+            } else {
+                content.innerHTML = bks.map(b => {
+                    const [h, m] = b.time.split(':'); const hr = parseInt(h);
+                    const timeStr = (hr % 12 || 12) + ':' + m + ' ' + (hr >= 12 ? 'PM' : 'AM');
+                    return `<div style="display:flex;align-items:center;gap:12px;padding:12px;border-bottom:1px solid var(--border);">
+                        <div style="width:50px;text-align:center;font-weight:700;font-size:0.85rem;color:var(--indigo);">${timeStr}</div>
+                        <div style="flex:1;"><div style="font-weight:600;color:var(--text-primary);font-size:0.95rem;">${b.name}</div><div style="font-size:0.8rem;color:var(--text-muted);">Consultation</div></div>
+                        <span class="badge badge-green" style="font-size:0.7rem;">Confirmed</span>
+                    </div>`;
+                }).join('');
+            }
+            document.getElementById('bookingDetailDialog').showModal();
+        }
+
+
+        // ===== ACTIVE BOOKINGS DATA & RENDER =====
+        const activeBookingsData = [
+            { customer: 'Maria Rodriguez', service: 'Consultation', date: 'Mar 24, 2026', dateISO: '2026-03-24', time: '3:00 PM', status: 'Confirmed', notes: 'First visit' },
+            { customer: 'James Liu', service: 'Full Service', date: 'Mar 24, 2026', dateISO: '2026-03-24', time: '4:30 PM', status: 'Pending', notes: '—' },
+            { customer: 'Sophie Turner', service: 'Premium Package', date: 'Mar 25, 2026', dateISO: '2026-03-25', time: '10:00 AM', status: 'Confirmed', notes: 'Referred by Mike' },
+            { customer: 'Devon Clarke', service: 'Consultation', date: 'Mar 25, 2026', dateISO: '2026-03-25', time: '2:00 PM', status: 'Confirmed', notes: 'Follow-up' },
+            { customer: 'Priya Sharma', service: 'Standard Package', date: 'Mar 26, 2026', dateISO: '2026-03-26', time: '11:00 AM', status: 'Rescheduled', notes: '3rd time' },
+            { customer: 'Alex Chen', service: 'Consultation', date: 'Mar 26, 2026', dateISO: '2026-03-26', time: '3:30 PM', status: 'Confirmed', notes: 'New client' },
+            { customer: 'Eva Brooks', service: 'Full Service', date: 'Mar 27, 2026', dateISO: '2026-03-27', time: '9:00 AM', status: 'Confirmed', notes: 'VIP' },
+            { customer: 'Marcus Brown', service: 'Premium Package', date: 'Mar 27, 2026', dateISO: '2026-03-27', time: '1:00 PM', status: 'Pending', notes: '—' },
+            { customer: 'Nina Kowalski', service: 'Consultation', date: 'Mar 28, 2026', dateISO: '2026-03-28', time: '10:30 AM', status: 'Confirmed', notes: 'Repeat' },
+            { customer: 'Jake Foster', service: 'Standard Package', date: 'Mar 28, 2026', dateISO: '2026-03-28', time: '2:00 PM', status: 'Confirmed', notes: '—' },
+            { customer: 'Liam O\'Brien', service: 'Full Service', date: 'Mar 29, 2026', dateISO: '2026-03-29', time: '11:00 AM', status: 'Pending', notes: 'Waitlisted' },
+            { customer: 'Hannah Green', service: 'Consultation', date: 'Mar 31, 2026', dateISO: '2026-03-31', time: '9:30 AM', status: 'Confirmed', notes: '—' }
+        ];
+        let activeBookingsPage = 1;
+        function renderActiveBookings() {
+            const search = (document.getElementById('activeBookingSearch')?.value || '').toLowerCase();
+            const from = document.getElementById('activeBookingFrom')?.value || '';
+            const to = document.getElementById('activeBookingTo')?.value || '';
+            const size = parseInt(document.getElementById('activeBookingPageSize')?.value || '10');
+            const filtered = activeBookingsData.filter(r => {
+                if (search && !r.customer.toLowerCase().includes(search)) return false;
+                if (from && r.dateISO < from) return false;
+                if (to && r.dateISO > to) return false;
+                return true;
+            });
+            const totalPages = Math.max(1, Math.ceil(filtered.length / size));
+            if (activeBookingsPage > totalPages) activeBookingsPage = totalPages;
+            const start = (activeBookingsPage - 1) * size;
+            const page = filtered.slice(start, start + size);
+            const statusBadge = s => s === 'Confirmed' ? 'badge-green' : s === 'Pending' ? 'badge-blue' : s === 'Rescheduled' ? 'badge-purple' : '';
+            const tb = document.getElementById('activeBookingsBody');
+            if (tb) tb.innerHTML = page.map(r => `<tr><td style="color:var(--text-primary);font-weight:600">${r.customer}</td><td>${r.service}</td><td>${r.date}</td><td>${r.time}</td><td><span class="badge ${statusBadge(r.status)}">${r.status}</span></td><td>${r.notes}</td></tr>`).join('');
+            renderPagination('activeBookingsPagination', filtered.length, size, activeBookingsPage, totalPages, function (p) { activeBookingsPage = p; renderActiveBookings(); });
+        }
+
+        // ===== PAST BOOKINGS DATA & RENDER =====
+        const pastBookingsData = [
+            { date: 'Mar 20, 2026', dateISO: '2026-03-20', time: '10:00 AM', customer: 'John Park', service: 'Consultation', duration: '45m', status: 'Completed' },
+            { date: 'Mar 19, 2026', dateISO: '2026-03-19', time: '2:30 PM', customer: 'Emily Davis', service: 'Premium Package', duration: '1h 30m', status: 'Completed' },
+            { date: 'Mar 18, 2026', dateISO: '2026-03-18', time: '11:00 AM', customer: 'Marcus Johnson', service: 'Standard Package', duration: '--', status: 'No-Show' },
+            { date: 'Mar 18, 2026', dateISO: '2026-03-18', time: '04:15 PM', customer: 'Sarah Wilson', service: 'Consultation', duration: '--', status: 'Cancelled' },
+            { date: 'Mar 17, 2026', dateISO: '2026-03-17', time: '09:00 AM', customer: 'David Kim', service: 'Full Service', duration: '1h 15m', status: 'Completed' },
+            { date: 'Mar 16, 2026', dateISO: '2026-03-16', time: '01:00 PM', customer: 'Jessica Alba', service: 'Premium Package', duration: '--', status: 'Rescheduled' },
+            { date: 'Mar 15, 2026', dateISO: '2026-03-15', time: '10:30 AM', customer: 'Robert Lee', service: 'Consultation', duration: '50m', status: 'Completed' },
+            { date: 'Mar 14, 2026', dateISO: '2026-03-14', time: '03:00 PM', customer: 'Anna Martinez', service: 'Standard Package', duration: '1h 0m', status: 'Completed' },
+            { date: 'Mar 12, 2026', dateISO: '2026-03-12', time: '11:45 AM', customer: 'Unknown Client', service: 'Consultation', duration: '--', status: 'No-Show' },
+            { date: 'Mar 10, 2026', dateISO: '2026-03-10', time: '02:15 PM', customer: 'Michael Chang', service: 'Premium Package', duration: '1h 25m', status: 'Completed' },
+            { date: 'Mar 08, 2026', dateISO: '2026-03-08', time: '09:30 AM', customer: 'Lisa Chen', service: 'Full Service', duration: '1h 10m', status: 'Completed' },
+            { date: 'Mar 06, 2026', dateISO: '2026-03-06', time: '02:00 PM', customer: 'Tom Wright', service: 'Consultation', duration: '40m', status: 'Completed' },
+            { date: 'Mar 05, 2026', dateISO: '2026-03-05', time: '10:00 AM', customer: 'Sofia Mendez', service: 'Standard Package', duration: '--', status: 'No-Show' },
+            { date: 'Mar 04, 2026', dateISO: '2026-03-04', time: '03:30 PM', customer: 'Ryan Cooper', service: 'Premium Package', duration: '1h 45m', status: 'Completed' },
+            { date: 'Mar 02, 2026', dateISO: '2026-03-02', time: '11:00 AM', customer: 'Aisha Patel', service: 'Consultation', duration: '55m', status: 'Completed' }
+        ];
+        let pastBookingsPage = 1;
+        function renderPastBookings() {
+            const search = (document.getElementById('pastBookingSearch')?.value || '').toLowerCase();
+            const from = document.getElementById('pastBookingFrom')?.value || '';
+            const to = document.getElementById('pastBookingTo')?.value || '';
+            const size = parseInt(document.getElementById('pastBookingPageSize')?.value || '10');
+            const filtered = pastBookingsData.filter(r => {
+                if (search && !r.customer.toLowerCase().includes(search)) return false;
+                if (from && r.dateISO < from) return false;
+                if (to && r.dateISO > to) return false;
+                return true;
+            });
+            const totalPages = Math.max(1, Math.ceil(filtered.length / size));
+            if (pastBookingsPage > totalPages) pastBookingsPage = totalPages;
+            const start = (pastBookingsPage - 1) * size;
+            const page = filtered.slice(start, start + size);
+            const statusBadge = s => s === 'Completed' ? 'badge-green' : s === 'No-Show' ? 'badge-red' : s === 'Cancelled' ? '' : s === 'Rescheduled' ? '' : '';
+            const statusStyle = s => s === 'Cancelled' ? 'background:#f3f4f6;color:#4b5563;border:1px solid #d1d5db' : s === 'Rescheduled' ? 'background:#fef3c7;color:#d97706;border:1px solid #fde68a' : '';
+            const tb = document.getElementById('pastBookingsBody');
+            if (tb) tb.innerHTML = page.map(r => `<tr><td>${r.date}</td><td>${r.time}</td><td style="color:var(--text-primary);font-weight:600">${r.customer}</td><td>${r.service}</td><td>${r.duration}</td><td><span class="badge ${statusBadge(r.status)}" style="${statusStyle(r.status)}">${r.status}</span></td></tr>`).join('');
+            renderPagination('pastBookingsPagination', filtered.length, size, pastBookingsPage, totalPages, function (p) { pastBookingsPage = p; renderPastBookings(); });
         }
 
         // ===== CUSTOMERS FILTER =====
@@ -4540,8 +4852,13 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Render initial data
             renderWeeklyCalendar();
-            renderCallsTable(callsData);
-            renderChatsTable(chatsData);
+            filterCallsTable();
+            filterChatsTable();
+            renderActiveBookings();
+            renderPastBookings();
+            renderWeeklySchedule();
+            renderBlockedSlots();
+            renderHolidays();
             renderVolumeChart('overviewVolumeChart', 'overviewVolumeLabels');
             renderAnalyticsBarChart('barPeakHours', peakHoursData);
             renderAnalyticsBarChart('barVolumeTrends', volumeTrendsData);
@@ -4658,6 +4975,9 @@
                     this.style.outline = '2px solid #6366f1';
                 });
             });
+
+            // Initialize Lucide icons
+            lucide.createIcons();
         });
     </script>
 </body>

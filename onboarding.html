@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -366,11 +366,13 @@
 
             <div class="card-grid-2" style="max-width: 480px; margin: 0 auto 30px auto;">
                 <div class="selection-card acc-type active" onclick="selectAccountType(this, 'Business')">
-                    <div class="card-icon">🏢</div>
+                    <div class="card-icon"><i data-lucide="building"
+                            style="width:1em;height:1em;vertical-align:middle;"></i></div>
                     <div class="card-text">Business</div>
                 </div>
                 <div class="selection-card acc-type" onclick="selectAccountType(this, 'Personal')">
-                    <div class="card-icon">👤</div>
+                    <div class="card-icon"><i data-lucide="user"
+                            style="width:1em;height:1em;vertical-align:middle;"></i></div>
                     <div class="card-text">Personal</div>
                 </div>
             </div>
@@ -464,15 +466,18 @@
             <div class="card-grid">
                 <div class="selection-card channel-type active" id="channel-call"
                     onclick="selectCard(this, 'channel-type')">
-                    <div class="card-icon" style="font-size:1.4rem;">📞</div>
+                    <div class="card-icon" style="font-size:1.4rem;"><i data-lucide="phone"
+                            style="width:1em;height:1em;vertical-align:middle;"></i></div>
                     <div class="card-text">Call</div>
                 </div>
                 <div class="selection-card channel-type" id="channel-chat" onclick="selectCard(this, 'channel-type')">
-                    <div class="card-icon" style="font-size:1.4rem;">💬</div>
+                    <div class="card-icon" style="font-size:1.4rem;"><i data-lucide="message-square"
+                            style="width:1em;height:1em;vertical-align:middle;"></i></div>
                     <div class="card-text">Chat</div>
                 </div>
                 <div class="selection-card channel-type" id="channel-both" onclick="selectCard(this, 'channel-type')">
-                    <div class="card-icon" style="font-size:1.4rem;">⚡</div>
+                    <div class="card-icon" style="font-size:1.4rem;"><i data-lucide="zap"
+                            style="width:1em;height:1em;vertical-align:middle;"></i></div>
                     <div class="card-text">Chat and Call</div>
                 </div>
             </div>
@@ -501,19 +506,23 @@
 
             <div class="card-grid-2">
                 <div class="selection-card voice-type active" onclick="selectCard(this, 'voice-type')">
-                    <div class="card-icon">💼</div>
+                    <div class="card-icon"><i data-lucide="briefcase"
+                            style="width:1em;height:1em;vertical-align:middle;"></i></div>
                     <div class="card-text">Professional</div>
                 </div>
                 <div class="selection-card voice-type" onclick="selectCard(this, 'voice-type')">
-                    <div class="card-icon">😊</div>
+                    <div class="card-icon"><i data-lucide="smile"
+                            style="width:1em;height:1em;vertical-align:middle;"></i></div>
                     <div class="card-text">Friendly</div>
                 </div>
                 <div class="selection-card voice-type" onclick="selectCard(this, 'voice-type')">
-                    <div class="card-icon">😎</div>
+                    <div class="card-icon"><i data-lucide="glasses"
+                            style="width:1em;height:1em;vertical-align:middle;"></i></div>
                     <div class="card-text">Casual</div>
                 </div>
                 <div class="selection-card voice-type" onclick="selectCard(this, 'voice-type')">
-                    <div class="card-icon">🏥</div>
+                    <div class="card-icon"><i data-lucide="hospital"
+                            style="width:1em;height:1em;vertical-align:middle;"></i></div>
                     <div class="card-text">Empathetic</div>
                 </div>
             </div>
@@ -565,9 +574,12 @@
         </div>
 
         <div class="nav-footer">
-            <button class="btn btn-ghost" id="btnBack" onclick="prevStep()" style="visibility:hidden;">← Back</button>
+            <button class="btn btn-ghost" id="btnBack" onclick="prevStep()" style="visibility:hidden;"><i
+                    data-lucide="arrow-left" style="width:14px;height:14px;vertical-align:middle;margin-right:4px"></i>
+                Back</button>
             <div class="step-counter" id="stepCounter">Step 1 of 7</div>
-            <button class="btn btn-primary" id="btnNext" onclick="nextStep()">Continue →</button>
+            <button class="btn btn-primary" id="btnNext" onclick="nextStep()">Continue <i data-lucide="arrow-right"
+                    style="width:14px;height:14px;vertical-align:middle;margin-left:4px"></i></button>
         </div>
 
     </div>
@@ -761,20 +773,20 @@
 
             status.style.display = 'block';
             status.style.color = 'var(--text-muted)';
-            status.innerHTML = '⏳ Checking...';
+            status.innerHTML = '<i data-lucide="hourglass" style="width:1em;height:1em;vertical-align:middle;"></i> Checking...';
             wrap.style.borderColor = 'var(--border-color)';
             if (currentDOMStep === 4) disableNextButton(btnNext);
 
             handleCheckTimeout = setTimeout(() => {
                 if (takenHandles.includes(handle)) {
                     status.style.color = '#ef4444';
-                    status.innerHTML = '❌ Handle already taken';
+                    status.innerHTML = '<i data-lucide="x-circle" style="width:1em;height:1em;vertical-align:middle;"></i> Handle already taken';
                     wrap.style.borderColor = '#ef4444';
                     isHandleValidAndAvailable = false;
                     if (currentDOMStep === 4) disableNextButton(btnNext);
                 } else {
                     status.style.color = '#10b981';
-                    status.innerHTML = '✅ Handle available';
+                    status.innerHTML = '<i data-lucide="check-circle" style="width:1em;height:1em;vertical-align:middle;"></i> Handle available';
                     wrap.style.borderColor = '#10b981';
                     isHandleValidAndAvailable = true;
                     if (currentDOMStep === 4) enableNextButton(btnNext);
@@ -837,7 +849,8 @@
             } else if (currentDOMStep === 4) {
                 btnNext.innerText = 'Create Account';
             } else {
-                btnNext.innerText = 'Continue →';
+                btnNext.innerHTML = 'Continue <i data-lucide="arrow-right" style="width:14px;height:14px;vertical-align:middle;margin-left:4px"></i>';
+                lucide.createIcons();
             }
 
             // Enforce Step 4 Validation Lock
@@ -936,6 +949,8 @@
         };
 
     </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1353,7 +1353,8 @@
                     <div class="dd-header">What Versafic does</div>
                     <div class="dropdown-grid">
                         <a class="dropdown-item" href="#features">
-                            <div class="dd-icon">📞</div>
+                            <div class="dd-icon"><i data-lucide="phone"
+                                    style="width:1em;height:1em;vertical-align:middle;"></i></div>
                             <div>
                                 <div class="dd-title">AI Call Automation</div>
                                 <div class="dd-sub">Answers every call in &lt;2 seconds, 24/7</div>
@@ -1367,7 +1368,8 @@
                             </div>
                         </a>
                         <a class="dropdown-item" href="#features">
-                            <div class="dd-icon">📅</div>
+                            <div class="dd-icon"><i data-lucide="calendar"
+                                    style="width:1em;height:1em;vertical-align:middle;"></i></div>
                             <div>
                                 <div class="dd-title">Auto Booking</div>
                                 <div class="dd-sub">Confirms appointments into your calendar</div>
@@ -1381,7 +1383,8 @@
                             </div>
                         </a>
                         <a class="dropdown-item" href="#features">
-                            <div class="dd-icon">📊</div>
+                            <div class="dd-icon"><i data-lucide="bar-chart"
+                                    style="width:1em;height:1em;vertical-align:middle;"></i></div>
                             <div>
                                 <div class="dd-title">Call Analytics</div>
                                 <div class="dd-sub">Volumes, sentiment, peak hours</div>
@@ -1456,7 +1459,7 @@
         <div class="hero-glow"></div>
 
         <div class="hero-chip">
-            <div class="chip-dot">⚡</div>
+            <div class="chip-dot"><i data-lucide="zap" style="width:1em;height:1em;vertical-align:middle;"></i></div>
             Your Business. Always Answering. Powered by AI.
         </div>
 
@@ -1526,7 +1529,8 @@
                 class="purple-text">automatically</span></h2>
         <div class="feature-grid">
             <div class="feature-cell">
-                <div class="feat-icon">📞</div>
+                <div class="feat-icon"><i data-lucide="phone" style="width:1em;height:1em;vertical-align:middle;"></i>
+                </div>
                 <div class="feat-title">AI Call Automation</div>
                 <div class="feat-desc">Your AI agent picks up every call in under 2 seconds — 24/7, no voicemail, no
                     hold music.</div>
@@ -1554,7 +1558,8 @@
                 </div>
             </div>
             <div class="feature-cell">
-                <div class="feat-icon">📅</div>
+                <div class="feat-icon"><i data-lucide="calendar"
+                        style="width:1em;height:1em;vertical-align:middle;"></i></div>
                 <div class="feat-title">Auto Booking</div>
                 <div class="feat-desc">Confirms appointments, table reservations, and consultations directly to your
                     calendar. Zero manual work.</div>
@@ -1582,7 +1587,8 @@
                 </div>
             </div>
             <div class="feature-cell">
-                <div class="feat-icon">📊</div>
+                <div class="feat-icon"><i data-lucide="bar-chart"
+                        style="width:1em;height:1em;vertical-align:middle;"></i></div>
                 <div class="feat-title">Call Analytics</div>
                 <div class="feat-desc">See call volumes, peak times, booking rates, and customer sentiment in one clean
                     dashboard.</div>
@@ -1670,7 +1676,8 @@
                 <div class="result-avi" style="background:rgba(59,130,246,0.12)">🏨</div>
                 <div>
                     <div class="r-name">Grand Horizon Hotel <span class="r-badge badge-v">✓ Verified</span></div>
-                    <div class="r-cat">Luxury Hotel · New York · ⭐ 4.9</div>
+                    <div class="r-cat">Luxury Hotel · New York · <i data-lucide="star"
+                            style="width:1em;height:1em;vertical-align:middle;"></i> 4.9</div>
                 </div>
                 <div class="ml-auto"><button class="btn btn-ghost btn-sm" style="font-size:0.78rem">View profile
                         →</button></div>
@@ -1921,6 +1928,8 @@
         document.addEventListener('mouseleave', () => { spotlight.style.opacity = '0'; });
         document.addEventListener('mouseenter', () => { if (moved) spotlight.style.opacity = '1'; });
     </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>lucide.createIcons();</script>
 </body>
 
 </html>
